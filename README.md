@@ -1,6 +1,6 @@
 # Consigne
 
-# Projet 4 livraison de pizza
+## Projet 4 livraison de pizza
 
 On veut modéliser la gestion d'une entreprise de fabrication et de livraison de pizzas à domicile:
 la société RaPizz. Le client choisit sa pizza à partir d'un catalogue. Une pizza est caractérisée
