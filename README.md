@@ -1,3 +1,6 @@
+# Intro
+Bonjour à tous, ce répertoire est un projet universitaire en collaboration entre [ttmassa](https://github.com/ttmassa) et [trCVZ](https://github.com/trCVZ) 
+
 # Consigne
 
 ## Projet 4 livraison de pizza
