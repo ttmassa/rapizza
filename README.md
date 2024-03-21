@@ -10,7 +10,7 @@ pizza "humaine" coûte le prix de base et l' "ogresse" est 1/3 plus chère que l
 pizzas sont livrées par des livreurs qui circulent en voiture ou à moto. Pour passer une
 commande de pizza, le client fournit son numéro de téléphone (qui va permettre de l’identifier)
 et le contenu de sa commande qu’on représente sous la forme d’une liste composée du nom
-d’une pizza, de sa taille et la quantité commandée. /
+d’une pizza, de sa taille et la quantité commandée. \
 Le système commence par vérifier que le client existe dans la base des clients et conserve l’objet
 client qui lui correspond. Le système vérifie ensuite que la commande est faisable (elle peut
 être fabriquée dans un Point RaPizza qui fait toutes les pizzas spéciales demandées) puis crée
