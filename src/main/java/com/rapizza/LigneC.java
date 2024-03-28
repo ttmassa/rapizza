@@ -25,6 +25,12 @@ public class LigneC {
         this.pizza = pizza;
     }
 
+    public LigneC(Pizza pizza, int qte, TaillePizza taille) {
+        this.qte = qte;
+        this.taille = taille;
+        this.pizza = pizza;
+    }
+
     public double getCoeff() {
         if (this.taille == TaillePizza.naine) {
             return 2/3;

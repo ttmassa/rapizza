@@ -32,7 +32,10 @@ public class Pizzeria {
 
     public void fabriquerCommande(Commande commande) {
         if (isClient(commande.client)) {
+            affecterLivreur(commande);
             this.listCo.add(commande);
+        } else {
+            System.out.println("Client non enregistré");
         }
     }
 
