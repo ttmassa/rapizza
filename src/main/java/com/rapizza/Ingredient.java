@@ -6,26 +6,24 @@ import java.util.*;
  * 
  */
 public class Ingredient {
+    /**
+     * Attributes
+     */
+    public String nom;
+    public double prixKg;
+    /**
+     * Associations
+     */
+    public Vector<LigneRecette> listIngr;
+
 
     /**
      * Default constructor
      */
-    public Ingredient() {
+    public Ingredient(String nom, double prixKg) {
+        this.nom = nom;
+        this.prixKg = prixKg;
+        this.listIngr = new Vector<LigneRecette>();
     }
-
-    /**
-     * 
-     */
-    public String nom;
-
-    /**
-     * 
-     */
-    public double prixKg;
-
-    /**
-     * 
-     */
-    public Vector<LigneRecette> listIngr;
 
 }

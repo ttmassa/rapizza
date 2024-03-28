@@ -6,26 +6,23 @@ import java.util.*;
  * 
  */
 public class Livreur {
+    /**
+     * Attributes
+     */
+    public int idLivreur;
+    /**
+     * Associations
+     */
+    public Vector<Livraison> listLivraison;
+    public Pizzeria pizzeria;
 
     /**
      * Default constructor
      */
-    public Livreur() {
+    public Livreur(int idLivreur, Pizzeria pizzeria) {
+        this.idLivreur = idLivreur;
+        this.listLivraison = new Vector<Livraison>();
+        this.pizzeria = pizzeria;
     }
-
-    /**
-     * 
-     */
-    public int idLivreur;
-
-    /**
-     * 
-     */
-    public Vector<Livraison> listLivraison;
-
-    /**
-     * 
-     */
-    public Pizzeria pizzeria;
 
 }
