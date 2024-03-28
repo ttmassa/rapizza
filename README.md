@@ -4,7 +4,7 @@ Bienvenue dans le référentiel GitHub du projet Rapizza ! Ce projet, développ�
 ## Aperçu du Projet
 Rapizza vise à simplifier la gestion des commandes, des livraisons et de l'inventaire pour une entreprise de livraison de pizzas. Avec une interface utilisateur conviviale et des fonctionnalités robustes, ce projet offre une solution complète pour les entreprises du secteur de la restauration rapide.
 
-Voici la consigne du projet : 
+### Consigne
 
 On veut modéliser la gestion d'une entreprise de fabrication et de livraison de pizzas à domicile: la société RaPizz. Le client choisit sa pizza à partir d'un catalogue. Une pizza est caractérisée par son nom, les ingrédients qui la composent et son prix de base. Pour chaque pizza, il existe 3 tailles : "naine","humaine" et "ogresse. La naine est 1/3 moins chère que le prix de base, la pizza "humaine" coûte le prix de base et l' "ogresse" est 1/3 plus chère que le prix de base. Les pizzas sont livrées par des livreurs qui circulent en voiture ou à moto. Pour passer une commande de pizza, le client fournit son numéro de téléphone (qui va permettre de l’identifier) et le contenu de sa commande qu’on représente sous la forme d’une liste composée du nom d’une pizza, de sa taille et la quantité commandée. 
 
