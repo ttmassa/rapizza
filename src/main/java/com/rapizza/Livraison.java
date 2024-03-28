@@ -26,4 +26,15 @@ public class Livraison {
         this.tempsLivraison = tempsLivraison;
     }
 
+    public boolean isLate() {
+        return this.tempsLivraison > 30;
+    }
+
+    public double getPrixFinale() {
+        if (this.isLate()) {
+            return 0;
+        } else {
+            return this.commande.getPrix();
+        }
+    }
 }
