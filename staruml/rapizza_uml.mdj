@@ -5413,38 +5413,6 @@
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
-							"_id": "AAAAAAGOYIVhmA6jLik=",
-							"_parent": {
-								"$ref": "AAAAAAGOW+4V0cnfoNQ="
-							},
-							"name": "choisit",
-							"end1": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGOYIVhmA6kBIw=",
-								"_parent": {
-									"$ref": "AAAAAAGOYIVhmA6jLik="
-								},
-								"name": "client",
-								"reference": {
-									"$ref": "AAAAAAGOW+4V0cnfoNQ="
-								},
-								"multiplicity": "1"
-							},
-							"end2": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGOYIVhmA6l9Qc=",
-								"_parent": {
-									"$ref": "AAAAAAGOYIVhmA6jLik="
-								},
-								"name": "listPizza",
-								"reference": {
-									"$ref": "AAAAAAGOW+6TC8oQwVQ="
-								},
-								"multiplicity": "1..*"
-							}
-						},
-						{
-							"_type": "UMLAssociation",
 							"_id": "AAAAAAGOYNgv3kW4MFY=",
 							"_parent": {
 								"$ref": "AAAAAAGOW+4V0cnfoNQ="

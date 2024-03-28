@@ -30,6 +30,27 @@ public class Pizzeria {
         this.listLivreur = new Vector<Livreur>();
     }
 
+    public void fabriquerCommande(Commande commande) {
+        if (isClient(commande.client)) {
+            this.listCo.add(commande);
+        }
+    }
+
+    public void affecterLivreur(Commande commande) {
+        int random = (int) (Math.random() * this.listLivreur.size());
+
+        while (!this.listLivreur.get(random).isAvailable) {
+            random = (int) (Math.random() * this.listLivreur.size());
+        }
+
+        this.listLivreur.get(random).affecterLivraison(commande);
+    }
+
+    public void fabriquerPizza(String nom, Vector<Ingredient> ingredients, double prixMarge) {
+        Pizza pizza = new Pizza(nom, ingredients, prixMarge, null, this);
+        this.menu.add(pizza);
+    }
+
     public void ajouterPizza(Pizza pizza) {
         this.menu.add(pizza);
     }
@@ -60,6 +81,10 @@ public class Pizzeria {
 
     public void retirerLivreur(Livreur livreur) {
         this.listLivreur.remove(livreur);
+    }
+
+    public boolean isClient(Client client) {
+        return this.listClient.contains(client);
     }
 
 }

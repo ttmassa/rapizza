@@ -10,6 +10,7 @@ public class Livreur {
      * Attributes
      */
     public int idLivreur;
+    public boolean isAvailable = true;
     /**
      * Associations
      */
@@ -25,10 +26,12 @@ public class Livreur {
         this.pizzeria = pizzeria;
     }
 
-    public void affecterLivraison(Livraison livraison) {
+    public void affecterLivraison(Commande commande) {
+        Livraison livraison = new Livraison(commande, this);
         this.listLivraison.add(livraison);
+        this.isAvailable = false;
     }
 
-    
+
 
 }

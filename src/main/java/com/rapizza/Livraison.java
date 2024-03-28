@@ -26,6 +26,11 @@ public class Livraison {
         this.tempsLivraison = tempsLivraison;
     }
 
+    public Livraison(Commande commande, Livreur livreur) {
+        this.commande = commande;
+        this.livreur = livreur;
+    }
+
     public boolean isLate() {
         return this.tempsLivraison > 30;
     }

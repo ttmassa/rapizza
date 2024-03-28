@@ -15,7 +15,6 @@ public class Client {
     /**
      * Associations
      */
-    public Vector<Pizza> listPizza;
     public Pizzeria pizzeria;
     public Vector<Commande> listCo;
 
@@ -26,17 +25,20 @@ public class Client {
     public Client(int numTelephone, double solde, Pizzeria pizzeria) {
         this.numTelephone = numTelephone;
         this.solde = solde;
-        this.listPizza = new Vector<Pizza>();
         this.pizzeria = pizzeria;
         this.listCo = new Vector<Commande>();
     }
 
-    public int getNbrCommande() {
-        return this.nbrCommande;
+    public void passerCommande(Vector<LigneC> listPizza) {
+        Commande commande = new Commande(this, this.pizzeria, listPizza);
+        this.listCo.add(commande);
     }
 
-    public void passerCommande(int idCommande, Livraison livraison) {
-        Commande commande = new Commande(idCommande, this, livraison, this.pizzeria);
+    public void recharger(double montant) {
+        this.solde += montant;
+    }
+
+    public void ajouterCommande(Commande commande) {
         this.listCo.add(commande);
     }
 

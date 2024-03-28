@@ -18,7 +18,7 @@ public class LigneC {
     /**
      * Default constructor
      */
-    public LigneC(int qte, TaillePizza taille, Commande commande, Pizza pizza) {
+    public LigneC(Commande commande, Pizza pizza, int qte, TaillePizza taille) {
         this.qte = qte;
         this.taille = taille;
         this.commande = commande;

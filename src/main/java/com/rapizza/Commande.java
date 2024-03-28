@@ -9,7 +9,7 @@ public class Commande {
     /**
      * Attributes
      */
-    public int idCommande;
+    static public int idCommande = 1;
     /**
      * Associations
      */
@@ -21,9 +21,12 @@ public class Commande {
     /**
      * Default constructor
     */
-    public Commande(int idCommande, Client client, Livraison livraison, Pizzeria pizzeria) {
-        this.idCommande = idCommande;
-        this.listLigne = new Vector<LigneC>();
+    public Commande(Client client, Pizzeria pizzeria, Vector<LigneC> listPizza) {
+        idCommande++;
+        this.client = client;
+        this.pizzeria = pizzeria;
+        this.listLigne = listPizza;
+        this.client.pizzeria.fabriquerCommande(this);
     }
 
     public double getPrix() {
