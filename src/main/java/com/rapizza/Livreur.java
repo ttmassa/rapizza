@@ -25,4 +25,10 @@ public class Livreur {
         this.pizzeria = pizzeria;
     }
 
+    public void affecterLivraison(Livraison livraison) {
+        this.listLivraison.add(livraison);
+    }
+
+    
+
 }

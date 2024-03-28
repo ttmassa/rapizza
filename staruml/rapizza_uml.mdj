@@ -382,7 +382,7 @@
 											"top": 189,
 											"width": 119.59619140625,
 											"height": 13,
-											"text": "+prixBase: double",
+											"text": "+prixMarge: double",
 											"horizontalAlignment": 0
 										}
 									],
@@ -5627,7 +5627,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOW+6TC8oQwVQ="
 							},
-							"name": "prixBase",
+							"name": "prixMarge",
 							"type": "double"
 						}
 					]

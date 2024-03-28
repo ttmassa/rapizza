@@ -36,4 +36,15 @@ public class Commande {
         return prix;
     }
 
+    public boolean isValide() {
+        return this.client.solde >= this.getPrix();
+    }
+
+    public void payer() {
+        if (this.isValide()) {
+            this.client.solde -= this.livraison.getPrixFinale();
+            this.pizzeria.listClient.get(this.client.numTelephone).nbrCommande++;
+        }
+    }
+
 }

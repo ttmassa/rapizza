@@ -30,4 +30,36 @@ public class Pizzeria {
         this.listLivreur = new Vector<Livreur>();
     }
 
+    public void ajouterPizza(Pizza pizza) {
+        this.menu.add(pizza);
+    }
+
+    public void ajouterClient(Client client) {
+        this.listClient.add(client);
+    }
+
+    public void ajouterCommande(Commande commande) {
+        this.listCo.add(commande);
+    }
+
+    public void ajouterLivreur(Livreur livreur) {
+        this.listLivreur.add(livreur);
+    }
+
+    public void retirerPizza(Pizza pizza) {
+        this.menu.remove(pizza);
+    }
+
+    public void retirerClient(Client client) {
+        this.listClient.remove(client);
+    }
+
+    public void retirerCommande(Commande commande) {
+        this.listCo.remove(commande);
+    }
+
+    public void retirerLivreur(Livreur livreur) {
+        this.listLivreur.remove(livreur);
+    }
+
 }

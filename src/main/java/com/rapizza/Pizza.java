@@ -11,7 +11,7 @@ public class Pizza {
      */
     public String nom;
     public Vector<Ingredient> ingredients;
-    public double prixBase;
+    public double prixMarge;
     
     /**
      * Associations
@@ -25,9 +25,9 @@ public class Pizza {
     /**
      * Default constructor
      */
-    public Pizza(String nom, String[] ingredients, double prixBase, Client client, Pizzeria pizzeria) {
+    public Pizza(String nom, Vector <Ingredient> ingredients, double prixMarge, Client client, Pizzeria pizzeria) {
         this.nom = nom;
-        this.prixBase = prixBase;
+        this.prixMarge = prixMarge;
         this.client = client;
         this.pizzeria = pizzeria;
         this.ingredients = new Vector<Ingredient>();
@@ -36,10 +36,10 @@ public class Pizza {
     }
     
     public double getPrix() {
-        double prix = this.prixBase;
+        double prix = this.prixMarge;
 
         for (LigneRecette ligne : this.listLigneR) {
-            prixBase += ligne.getPrix();
+            prixMarge += ligne.getPrix();
         }
 
         return prix;

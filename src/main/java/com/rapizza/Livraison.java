@@ -31,7 +31,7 @@ public class Livraison {
     }
 
     public double getPrixFinale() {
-        if (this.isLate()) {
+        if (this.isLate() || this.commande.client.nbrCommande > 10) {
             return 0;
         } else {
             return this.commande.getPrix();
