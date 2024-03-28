@@ -6,36 +6,18 @@ import java.util.*;
  * 
  */
 public class Pizzeria {
+    public String adresse;
+    public Vector<Client> listClient;
+    public Vector<Pizza> menu;
+    public Vector<Commande> listCo;
+    public Vector<Livreur> listLivreur;
+
 
     /**
      * Default constructor
      */
-    public Pizzeria() {
+    public Pizzeria(String adresse) {
+        this.adresse = adresse;
     }
-
-    /**
-     * 
-     */
-    public String adresse;
-
-    /**
-     * 
-     */
-    public Set<Client> listClient;
-
-    /**
-     * 
-     */
-    public Set<Pizza> menu;
-
-    /**
-     * 
-     */
-    public Set<Commande> listCo;
-
-    /**
-     * 
-     */
-    public Set<Livreur> listLivreur;
 
 }

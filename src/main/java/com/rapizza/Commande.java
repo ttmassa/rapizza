@@ -31,7 +31,7 @@ public class Commande {
     /**
      * 
      */
-    public Set<LigneC> listLigne;
+    public Vector<LigneC> listLigne;
 
     /**
      * 

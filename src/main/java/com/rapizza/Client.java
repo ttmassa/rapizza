@@ -26,7 +26,7 @@ public class Client {
     /**
      * 
      */
-    public Set<Pizza> listPizza;
+    public Vector<Pizza> listPizza;
 
     /**
      * 
@@ -36,6 +36,6 @@ public class Client {
     /**
      * 
      */
-    public Set<Commande> listCo;
+    public Vector<Commande> listCo;
 
 }

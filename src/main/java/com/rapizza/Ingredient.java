@@ -26,6 +26,6 @@ public class Ingredient {
     /**
      * 
      */
-    public Set<LigneRecette> listIngr;
+    public Vector<LigneRecette> listIngr;
 
 }

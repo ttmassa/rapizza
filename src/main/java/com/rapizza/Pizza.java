@@ -41,11 +41,11 @@ public class Pizza {
     /**
      * 
      */
-    public Set<LigneRecette> listLigneR;
+    public Vector<LigneRecette> listLigneR;
 
     /**
      * 
      */
-    public Set<LigneC> listLigne;
+    public Vector<LigneC> listLigne;
 
 }

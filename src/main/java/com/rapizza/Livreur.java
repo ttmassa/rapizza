@@ -21,7 +21,7 @@ public class Livreur {
     /**
      * 
      */
-    public Set<Livraison> listLivraison;
+    public Vector<Livraison> listLivraison;
 
     /**
      * 
