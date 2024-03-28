@@ -8,7 +8,7 @@ public class LigneRecette {
     /**
      * Attributes
      */
-    public int qte;
+    public double qte;
     /**
      * Associations
      */
@@ -18,10 +18,14 @@ public class LigneRecette {
     /**
      * Default constructor
      */
-    public LigneRecette(int qte, Pizza pizza, Ingredient ingr) {
+    public LigneRecette(double qte, Pizza pizza, Ingredient ingr) {
         this.qte = qte;
         this.pizza = pizza;
         this.ingr = ingr;
+    }
+
+    public double getPrix() {
+        return this.qte * this.ingr.prixKg;
     }
 
 }

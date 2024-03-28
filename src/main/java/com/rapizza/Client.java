@@ -30,4 +30,13 @@ public class Client {
         this.listCo = new Vector<Commande>();
     }
 
+    public void passerCommande(int idCommande, Livraison livraison) {
+        Commande commande = new Commande(idCommande, this, livraison, this.pizzeria);
+        this.listCo.add(commande);
+    }
+
+    public void annulerCommande(Commande commande) {
+        this.listCo.remove(commande);
+    }
+
 }

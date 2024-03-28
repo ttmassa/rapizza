@@ -3,7 +3,7 @@ package com.rapizza;
  * 
  */
 public enum TaillePizza {
-    naine,
+    naine, // -1/3 de humaine
     humaine,
-    ogresse
+    ogresse // +1/3 de humaine
 }

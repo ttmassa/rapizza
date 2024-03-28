@@ -26,6 +26,14 @@ public class Commande {
         this.listLigne = new Vector<LigneC>();
     }
 
+    public double getPrix() {
+        double prix = 0;
 
+        for (LigneC ligne : this.listLigne) {
+            prix += ligne.getPrix();
+        }
+
+        return prix;
+    }
 
 }
