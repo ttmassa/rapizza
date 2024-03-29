@@ -30,6 +30,9 @@ public class Livreur {
         Livraison livraison = new Livraison(commande, this);
         this.listLivraison.add(livraison);
         this.isAvailable = false;
+
+        // Start the delivery
+        livraison.livrer();
     }
 
 
