@@ -31,7 +31,7 @@ public class Pizzeria {
     }
 
     public void fabriquerCommande(Commande commande) {
-        if (isClient(commande.client)) {
+        if (isClient(commande.client) && isCommandeFaisable(commande)) {
             affecterLivreur(commande);
             this.listCo.add(commande);
         } else {
@@ -49,9 +49,29 @@ public class Pizzeria {
         this.listLivreur.get(random).affecterLivraison(commande);
     }
 
-    public void fabriquerPizza(String nom, Vector<Ingredient> ingredients, double prixMarge) {
-        Pizza pizza = new Pizza(nom, ingredients, prixMarge, null, this);
-        this.menu.add(pizza);
+    public boolean isPizzaAlvailable(Pizza pizza) {
+        if (this.menu.contains(pizza)) {
+            System.out.println("Pizza disponible");
+            return true;
+        } else {
+            System.out.println("Pizza indisponible");
+            return false;
+        }
+    }
+
+    public boolean isCommandeFaisable(Commande commande) {
+        for (LigneC ligne : commande.listLigne) {
+            if (!isPizzaAlvailable(ligne.pizza)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void afficherMenu() {
+        for (Pizza pizza : this.menu) {
+            System.out.println(pizza.toString());
+        }
     }
 
     public void ajouterPizza(Pizza pizza) {

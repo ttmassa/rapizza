@@ -19,13 +19,17 @@ public class LigneRecette {
      * Default constructor
      */
     public LigneRecette(double qte, Pizza pizza, Ingredient ingr) {
-        this.qte = qte;
         this.pizza = pizza;
+        this.qte = qte;
         this.ingr = ingr;
     }
 
     public double getPrix() {
         return this.qte * this.ingr.prixKg;
+    }
+
+    public String toString() {
+        return this.qte + "kg de " + this.ingr.nom;
     }
 
 }
