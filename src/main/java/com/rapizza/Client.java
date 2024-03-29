@@ -49,6 +49,10 @@ public class Client {
         this.solde += montant;
     }
 
+    public void retirer(double montant) {
+        this.solde -= montant;
+    }
+
     public void ajouterCommande(Commande commande) {
         this.listCo.add(commande);
     }

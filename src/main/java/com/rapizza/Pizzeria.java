@@ -66,7 +66,7 @@ public class Pizzeria {
         this.listCo.add(commande);
     }
 
-    public void ajouterLivreur(Livreur livreur) {
+    public void recruterLivreur(Livreur livreur) {
         this.listLivreur.add(livreur);
     }
 
@@ -82,7 +82,7 @@ public class Pizzeria {
         this.listCo.remove(commande);
     }
 
-    public void retirerLivreur(Livreur livreur) {
+    public void virerLivreur(Livreur livreur) {
         this.listLivreur.remove(livreur);
     }
 
