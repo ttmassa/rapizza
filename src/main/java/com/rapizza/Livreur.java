@@ -9,7 +9,7 @@ public class Livreur {
     /**
      * Attributes
      */
-    public int idLivreur;
+    static int idLivreur = 0;
     public boolean isAvailable = true;
     /**
      * Associations
@@ -20,8 +20,8 @@ public class Livreur {
     /**
      * Default constructor
      */
-    public Livreur(int idLivreur, Pizzeria pizzeria) {
-        this.idLivreur = idLivreur;
+    public Livreur(Pizzeria pizzeria) {
+        idLivreur++;
         this.listLivraison = new Vector<Livraison>();
         this.pizzeria = pizzeria;
     }

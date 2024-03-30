@@ -31,7 +31,7 @@ public class Livraison {
         this.livreur = livreur;
 
         // Generate a random time for the delivery between 5 and 50 minutes
-        int random = (int) (Math.random() * 45) + 5;
+        int random = (int) (Math.random() * 30) + 5;
         this.tempsLivraison = random;
 
         // 1 out of 3 chance to get a moto or a car
@@ -39,8 +39,18 @@ public class Livraison {
     } 
 
     public void livrer() {
-        this.commande.payer();
+        if (!this.commande.isValide()) {
+            System.out.println("Solde insuffisant");
+            return;
+        }
+        this.payer();
+        System.out.println("Commande livrée");
         this.livreur.isAvailable = true;
+    }
+
+    public void payer() {
+        this.commande.client.solde -= this.getPrixFinale();
+        this.commande.pizzeria.listClient.get(this.commande.client.numToInt()).nbrCommande++;
     }
 
     public boolean isLate() {
@@ -49,6 +59,7 @@ public class Livraison {
 
     public double getPrixFinale() {
         if (this.isLate() || this.commande.client.nbrCommande > 10) {
+            System.out.println("Commande gratuite");
             return 0;
         } else {
             return this.commande.getPrix();

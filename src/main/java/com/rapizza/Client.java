@@ -9,7 +9,7 @@ public class Client {
     /**
      * Attributes
      */
-    public int numTelephone;
+    public String numTelephone;
     public double solde;
     public int nbrCommande = 0;
     /**
@@ -23,11 +23,13 @@ public class Client {
     /**
      * Default constructor
      */
-    public Client(int numTelephone, double solde, Pizzeria pizzeria) {
+    public Client(String numTelephone, Pizzeria pizzeria) {
         this.numTelephone = numTelephone;
-        this.solde = solde;
+        this.solde = 0;
         this.pizzeria = pizzeria;
         this.listCo = new Vector<Commande>();
+        this.listPizza = new Vector<LigneC>();
+        this.pizzeria.ajouterClient(this);
     }
 
     /*
@@ -73,6 +75,10 @@ public class Client {
 
     public void annulerCommande(Commande commande) {
         this.listCo.remove(commande);
+    }
+
+    public int numToInt() {
+        return Integer.parseInt(this.numTelephone);
     }
 
 }
