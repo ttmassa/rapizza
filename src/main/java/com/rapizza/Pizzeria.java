@@ -39,6 +39,11 @@ public class Pizzeria {
         }
     }
 
+    public void fabriquerPizza(String nom, double prix, Vector<Ingredient> ingredients) {
+        Pizza pizza = new Pizza(nom, prix, ingredients);
+        this.menu.add(pizza);
+    }
+
     public void affecterLivreur(Commande commande) {
         int random = (int) (Math.random() * this.listLivreur.size());
 

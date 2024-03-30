@@ -34,6 +34,14 @@ public class Pizza {
         this.listLigneR = new Vector<LigneRecette>();
         this.listLigne = new Vector<LigneC>();
     }
+
+    public Pizza(String nom, double prixMarge, Vector <Ingredient> ingredients) {
+        this.nom = nom;
+        this.prixMarge = prixMarge;
+        this.ingredients = ingredients;
+        this.listLigneR = new Vector<LigneRecette>();
+        this.listLigne = new Vector<LigneC>();
+    }
     
     public double getPrix() {
         double prix = this.prixMarge;
