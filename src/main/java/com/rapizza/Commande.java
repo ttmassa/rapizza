@@ -27,10 +27,6 @@ public class Commande {
         this.pizzeria = pizzeria;
         this.listLigne = listPizza;
 
-        for (LigneC ligne : this.listLigne) {
-            ligne = new LigneC(this, ligne.pizza, ligne.qte, ligne.taille);
-        }
-
         this.client.pizzeria.fabriquerCommande(this);
     }
 

@@ -30,15 +30,29 @@ public class Client {
         this.listCo = new Vector<Commande>();
     }
 
+    /*
+     * Methods
+     * To order a pizza -> - add Line(s) to the listPizza with ajouterLigne()
+     *                     - pass the order with passCommande()
+     */
+
     public void passerCommande() {
         Commande commande = new Commande(this, this.pizzeria, listPizza);
         ajouterCommande(commande);
         effacerLignes();
     }
 
-    public void ajouterLigne(Pizza pizza, int qte, TaillePizza taille) {
-        LigneC ligne = new LigneC(pizza, qte, taille);
-        this.listPizza.add(ligne);
+    public void ajouterLigne(String nomPizza, int qte, TaillePizza taille) {
+        if (this.pizzeria.menu.stream().noneMatch(p -> p.nom.equals(nomPizza))) {
+            System.out.println("Pizza non disponible");
+            return;
+        } else {
+            // Get the pizza from the menu with the name given
+            Pizza pizza = this.pizzeria.menu.stream().filter(p -> p.nom.equals(nomPizza)).findFirst().orElse(null);
+
+            LigneC ligne = new LigneC(pizza, qte, taille);
+            this.listPizza.add(ligne);
+        }
     }
 
     public void effacerLignes() {

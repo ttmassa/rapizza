@@ -31,17 +31,13 @@ public class Pizzeria {
     }
 
     public void fabriquerCommande(Commande commande) {
+        // Check if the client is registered and if the order is allowed
         if (isClient(commande.client) && isCommandeFaisable(commande)) {
             affecterLivreur(commande);
             this.listCo.add(commande);
         } else {
             System.out.println("Client non enregistré");
         }
-    }
-
-    public void fabriquerPizza(String nom, double prix, Vector<Ingredient> ingredients) {
-        Pizza pizza = new Pizza(nom, prix, ingredients);
-        this.menu.add(pizza);
     }
 
     public void affecterLivreur(Commande commande) {
@@ -55,13 +51,8 @@ public class Pizzeria {
     }
 
     public boolean isPizzaAlvailable(Pizza pizza) {
-        if (this.menu.contains(pizza)) {
-            System.out.println("Pizza disponible");
-            return true;
-        } else {
-            System.out.println("Pizza indisponible");
-            return false;
-        }
+        // Check if the menu contains the pizza asked
+        return this.menu.contains(pizza);
     }
 
     public boolean isCommandeFaisable(Commande commande) {
