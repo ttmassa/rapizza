@@ -77,8 +77,4 @@ public class Client {
         this.listCo.remove(commande);
     }
 
-    public int numToInt() {
-        return Integer.parseInt(this.numTelephone);
-    }
-
 }
