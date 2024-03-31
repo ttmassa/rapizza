@@ -47,7 +47,7 @@ public class Pizza {
         double prix = this.prixMarge;
 
         for (LigneRecette ligne : this.listLigneR) {
-            prixMarge += ligne.getPrix();
+            prix += ligne.getPrix();
         }
 
         return prix;
