@@ -29,7 +29,7 @@ public class Main {
 
         pizzeria.listLivreur.add(livreur);
 
-        moi.recharger(50);
+        moi.recharger(50.00);
 
         moi.passerCommande();
 

@@ -1,6 +1,7 @@
 package com.rapizza;
 
-
+import java.util.Timer;
+import java.util.TimerTask;
 /**
  * 
  */
@@ -44,8 +45,23 @@ public class Livraison {
             return;
         }
         this.payer();
-        System.out.println("Commande livrée");
-        this.livreur.isAvailable = true;
+
+        // Set the delivery in progress
+        System.out.println("Commande en cours de livraison");
+
+        // Create a timer to simulate the delivery
+        Timer timer  = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("Commande livrée");
+                System.out.println("Nouveau solde client : " + commande.client.solde + " euros");
+                livreur.isAvailable = true;
+                timer.cancel();
+            }
+        };
+
+        timer.schedule(task, this.tempsLivraison * 10);
     }
 
     public void payer() {
@@ -58,8 +74,11 @@ public class Livraison {
     }
 
     public double getPrixFinale() {
-        if (this.isLate() || this.commande.client.nbrCommande > 10) {
-            System.out.println("Commande gratuite");
+        if (this.isLate()) {
+            System.out.println("Retard de livraison (" + this.tempsLivraison + ") : Commande gratuite !");
+            return 0;
+        } else if (this.commande.client.nbrCommande % 10 == 0 && this.commande.client.nbrCommande != 0) {
+            System.out.println("10 commandes chez nous : Commande gratuite !");
             return 0;
         } else {
             return this.commande.getPrix();
