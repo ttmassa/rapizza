@@ -3,17 +3,17 @@ package com.rapizza;
  * 
  */
 public enum TaillePizza {
-    naine, // -1/3 de humaine
-    humaine,
-    ogresse; // +1/3 de humaine
+    NAINE, // -1/3 de HUMAINE
+    HUMAINE,
+    OGRESSE; // +1/3 de HUMAINE
 
     public double getRatio() {
         switch (this) {
-            case naine:
+            case NAINE:
                 return 0.66;
-            case humaine:
+            case HUMAINE:
                 return 1;
-            case ogresse:
+            case OGRESSE:
                 return 1.33;
             default:
                 return 1;

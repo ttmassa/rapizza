@@ -70,7 +70,11 @@ public class Pizzeria {
 
     public void afficherMenu() {
         for (Pizza pizza : this.menu) {
-            System.out.println(pizza.nom + " : " + pizza.getPrix() + " euros\n");
+            System.out.println(
+                pizza.nom + " : Naine = " + pizza.getPrix(TaillePizza.NAINE) + 
+                " euros, Humaine = " + pizza.getPrix(TaillePizza.HUMAINE) + 
+                " euros, Ogresse = " + pizza.getPrix(TaillePizza.OGRESSE) + " euros"
+            );
         }
     }
 

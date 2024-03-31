@@ -27,7 +27,7 @@ public class Ingredient {
     }
 
     public void ajouterLigneRecette(Pizza pizza, double qte) {
-        LigneRecette ligne = new LigneRecette(qte, pizza, this);
+        LigneRecette ligne = new LigneRecette(pizza, this, qte);
         this.listIngr.add(ligne);
     }
 

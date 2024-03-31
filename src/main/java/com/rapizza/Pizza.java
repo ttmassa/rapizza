@@ -24,6 +24,12 @@ public class Pizza {
 
     /**
      * Default constructor
+     * J'aime pas la manière dont on crée une pizza mais j'ai pas d'autre idée
+     * En gros, on crée la pizza avec un nom, son prix de marge et les ingrédients. Ensuite, le constructeur crée les lignes de recette
+     * en initialisant la quantité à 1 pour chaque ingrédient. Pour changer la quantité, il faut utiliser la méthode changeQuantity ce qui
+     * n'est pas très pratique.
+     * Une autre solution ça serait de créer la pizza avec un nom, son prix de marge et les lignes de recette. Mais ça oblige à créer les
+     * lignes de recette avant de créer la pizza. Ce qui n'est pas très pratique non plus.
      */
     public Pizza(String nom, Vector <Ingredient> ingredients, double prixMarge, Client client, Pizzeria pizzeria) {
         this.nom = nom;
@@ -41,10 +47,14 @@ public class Pizza {
         this.ingredients = ingredients;
         this.listLigneR = new Vector<LigneRecette>();
         for (Ingredient ingr : ingredients) {
-            this.listLigneR.add(new LigneRecette(1, this, ingr));
+            this.listLigneR.add(new LigneRecette(this, ingr, 1));
         }
         this.listLigne = new Vector<LigneC>();
     }
+
+    /*
+     * Methods
+     */
     
     public double getPrix() {
         double prix = this.prixMarge;
@@ -54,6 +64,30 @@ public class Pizza {
         }
 
         return prix;
+    }
+
+    public double getPrix(TaillePizza taille) {
+        double prix = this.prixMarge;
+
+        for (LigneRecette ligne : this.listLigneR) {
+            prix += ligne.getPrix() * taille.getRatio();
+        }
+
+        return Math.round(prix * 100.0) / 100.0;
+    }
+
+    public void changeQuantity(Ingredient ingr, double qte) {
+        for (LigneRecette ligne : this.listLigneR) {
+            if (ligne.ingr == ingr) {
+                ligne.qte = qte;
+                return;
+            }
+        }
+    }
+
+    public void addIngredient(Ingredient ingr) {
+        this.ingredients.add(ingr);
+        this.listLigneR.add(new LigneRecette(this, ingr, 1));
     }
 
 }

@@ -1439,7 +1439,7 @@
 											"top": 59,
 											"width": 86.72802734375,
 											"height": 13,
-											"text": "naine",
+											"text": "NAINE",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1456,7 +1456,7 @@
 											"top": 74,
 											"width": 86.72802734375,
 											"height": 13,
-											"text": "humaine",
+											"text": "HUMAINE",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1473,7 +1473,7 @@
 											"top": 89,
 											"width": 86.72802734375,
 											"height": 13,
-											"text": "ogresse",
+											"text": "OGRESSE",
 											"horizontalAlignment": 0
 										}
 									],
@@ -5867,7 +5867,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOW/d87st0OVA="
 							},
-							"name": "naine"
+							"name": "NAINE"
 						},
 						{
 							"_type": "UMLEnumerationLiteral",
@@ -5875,7 +5875,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOW/d87st0OVA="
 							},
-							"name": "humaine"
+							"name": "HUMAINE"
 						},
 						{
 							"_type": "UMLEnumerationLiteral",
@@ -5883,7 +5883,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOW/d87st0OVA="
 							},
-							"name": "ogresse"
+							"name": "OGRESSE"
 						}
 					]
 				},

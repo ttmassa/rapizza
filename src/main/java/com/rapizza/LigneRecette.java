@@ -18,7 +18,7 @@ public class LigneRecette {
     /**
      * Default constructor
      */
-    public LigneRecette(double qte, Pizza pizza, Ingredient ingr) {
+    public LigneRecette(Pizza pizza, Ingredient ingr, double qte) {
         this.pizza = pizza;
         this.qte = qte;
         this.ingr = ingr;
