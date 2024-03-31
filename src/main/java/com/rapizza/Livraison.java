@@ -50,7 +50,7 @@ public class Livraison {
 
     public void payer() {
         this.commande.client.solde -= this.getPrixFinale();
-        this.commande.pizzeria.listClient.get(this.commande.client.numToInt()).nbrCommande++;
+        this.commande.client.nbrCommande++;
     }
 
     public boolean isLate() {

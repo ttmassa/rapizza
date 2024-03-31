@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Pizzeria pizzeria = new Pizzeria("1 rue de la pizza");
 
-        Client moi = new Client("0", pizzeria);
+        Client moi = new Client("06 67 37 87 72", pizzeria);
 
         Ingredient fromage = new Ingredient("fromage", 0.5);
         Ingredient tomate = new Ingredient("tomate", 1);
