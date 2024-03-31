@@ -40,6 +40,9 @@ public class Pizza {
         this.prixMarge = prixMarge;
         this.ingredients = ingredients;
         this.listLigneR = new Vector<LigneRecette>();
+        for (Ingredient ingr : ingredients) {
+            this.listLigneR.add(new LigneRecette(1, this, ingr));
+        }
         this.listLigne = new Vector<LigneC>();
     }
     
