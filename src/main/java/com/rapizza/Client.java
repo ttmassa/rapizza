@@ -44,7 +44,7 @@ public class Client {
         effacerLignes();
     }
 
-    public void ajouterLigne(String nomPizza, int qte, TaillePizza taille) {
+    public void ajouterLigne(String nomPizza, int qte, String taille) {
         if (this.pizzeria.menu.stream().noneMatch(p -> p.nom.equals(nomPizza))) {
             System.out.println("Pizza non disponible");
             return;
@@ -52,7 +52,7 @@ public class Client {
             // Get the pizza from the menu with the name given
             Pizza pizza = this.pizzeria.menu.stream().filter(p -> p.nom.equals(nomPizza)).findFirst().orElse(null);
 
-            LigneC ligne = new LigneC(pizza, qte, taille);
+            LigneC ligne = new LigneC(pizza, qte, TaillePizza.valueOf(taille));
             this.listPizza.add(ligne);
         }
     }
