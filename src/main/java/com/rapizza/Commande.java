@@ -26,6 +26,7 @@ public class Commande {
         this.client = client;
         this.pizzeria = pizzeria;
         this.listLigne = listPizza;
+        this.livraison = null;
 
         this.client.pizzeria.fabriquerCommande(this);
     }
@@ -37,7 +38,7 @@ public class Commande {
             prix += ligne.getPrix();
         }
 
-        return prix;
+        return Math.round(prix * 100.0) / 100.0;
     }
 
     public boolean isValide() {

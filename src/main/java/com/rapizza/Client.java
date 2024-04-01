@@ -40,9 +40,14 @@ public class Client {
      */
 
     public void passerCommande() {
-        Commande commande = new Commande(this, this.pizzeria, listPizza);
-        ajouterCommande(commande);
-        effacerLignes();
+        if (this.listPizza.isEmpty()) {
+            System.out.println("Commande vide");
+            return;
+        } else {
+            Commande commande = new Commande(this, this.pizzeria, listPizza);
+            ajouterCommande(commande);
+            effacerLignes();    
+        }
     }
 
     public void ajouterLigne(String nomPizza, int qte, String taille) {

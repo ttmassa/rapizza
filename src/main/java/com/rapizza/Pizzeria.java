@@ -32,12 +32,15 @@ public class Pizzeria {
 
     public void fabriquerCommande(Commande commande) {
         // Check if the client is registered and if the order is allowed
-        if (isClient(commande.client) && isCommandeFaisable(commande)) {
-            choisirLivreur(commande);
-            this.listCo.add(commande);
-        } else {
+        if (!isClient(commande.client)) {
             System.out.println("Client non enregistré");
             return;
+        } else if (!isCommandeFaisable(commande)) {
+            System.out.println("Commande impossible");
+            return;
+        } else {
+            choisirLivreur(commande);
+            ajouterCommande(commande);
         }
     }
 
