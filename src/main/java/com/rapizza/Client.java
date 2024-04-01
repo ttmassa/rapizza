@@ -1,6 +1,6 @@
 package com.rapizza;
 
-import java.util.*;
+import java.util.Vector;
 
 /**
  * 
@@ -11,7 +11,7 @@ public class Client {
      */
     public String numTelephone;
     public double solde;
-    public int nbrCommande = 0;
+    public int nbrCommande;
     /**
      * Associations
      */
@@ -28,6 +28,7 @@ public class Client {
         this.solde = 0;
         this.pizzeria = pizzeria;
         this.listCo = new Vector<Commande>();
+        this.nbrCommande = 0;
         this.listPizza = new Vector<LigneC>();
         this.pizzeria.ajouterClient(this);
     }
@@ -47,7 +48,6 @@ public class Client {
     public void ajouterLigne(String nomPizza, int qte, String taille) {
         if (this.pizzeria.menu.stream().noneMatch(p -> p.nom.equals(nomPizza))) {
             System.out.println("Pizza non disponible");
-            return;
         } else {
             // Get the pizza from the menu with the name given
             Pizza pizza = this.pizzeria.menu.stream().filter(p -> p.nom.equals(nomPizza)).findFirst().orElse(null);
@@ -71,10 +71,17 @@ public class Client {
 
     public void ajouterCommande(Commande commande) {
         this.listCo.add(commande);
+        this.nbrCommande = this.listCo.size();
     }
 
     public void annulerCommande(Commande commande) {
         this.listCo.remove(commande);
+    }
+
+    public void profilInfo() {
+        System.out.println("Numéro de téléphone : " + this.numTelephone);
+        System.out.println("Solde : " + this.solde);
+        System.out.println("Nombre de commandes : " + this.nbrCommande);
     }
 
 }

@@ -19,7 +19,7 @@ public class Main {
 
         pizzeria.afficherMenu();
 
-        moi.ajouterLigne("Margheritta", 2, "OGRESSE");
+        moi.ajouterLigne("Napolitaine", 2, "OGRESSE");
 
         Livreur livreur = new Livreur(pizzeria);
 
@@ -27,7 +27,12 @@ public class Main {
 
         moi.recharger(50.00);
 
+        
+        moi.profilInfo();
+
         moi.passerCommande();
+
+        moi.profilInfo();
 
     }
 }

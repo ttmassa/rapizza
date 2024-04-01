@@ -1,6 +1,6 @@
 package com.rapizza;
 
-import java.util.*;
+import java.util.Vector;
 
 /**
  * 
@@ -37,6 +37,7 @@ public class Pizzeria {
             this.listCo.add(commande);
         } else {
             System.out.println("Client non enregistré");
+            return;
         }
     }
 
