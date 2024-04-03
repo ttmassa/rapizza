@@ -13,8 +13,9 @@ public class App {
             mainWindow.setSize(800, 600);
 
             // Create the main panel
-            MainPanel mainPanel = new MainPanel();
+            AuthentificationPanel mainPanel = new AuthentificationPanel();
             mainWindow.add(mainPanel);
+            mainWindow.setLocationRelativeTo(null);
 
             // Display the main window
             mainWindow.setVisible(true);
