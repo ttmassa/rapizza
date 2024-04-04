@@ -1,15 +1,15 @@
 package com.rapizza;
 
 import javax.swing.*;
-
 import com.rapizza.listeners.LoginButtonListener;
-
+import com.rapizza.listeners.PhoneNumberListener;
 import java.awt.*;
 
 public class AuthentificationPanel extends JPanel {
     private JRadioButton clientRadioButton;
     private JRadioButton adminRadioButton;
     private JRadioButton livreurRadioButton;
+    private PhoneNumberListener phoneNumberListener; // Add this line
 
     public AuthentificationPanel() {
         // Set layout to GridBagLayout to center the components
@@ -25,11 +25,9 @@ public class AuthentificationPanel extends JPanel {
         phoneNumberLabel.isCursorSet();
         this.add(phoneNumberLabel, gbc);
 
-        // Create the text field
+        // Create the phone number text field
         JTextField phoneNumberTextField = new JTextField();
         phoneNumberTextField.setPreferredSize(new Dimension(150, 24));
-
-        // Center text horizontally within the text field
         phoneNumberTextField.setHorizontalAlignment(JTextField.CENTER);
 
         // Add the text field to the center of the panel
@@ -37,6 +35,10 @@ public class AuthentificationPanel extends JPanel {
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.CENTER;
         this.add(phoneNumberTextField, gbc);
+
+        // Create a listener for the phone number text field
+        phoneNumberListener = new PhoneNumberListener(phoneNumberTextField); // Store the listener
+        phoneNumberTextField.getDocument().addDocumentListener(phoneNumberListener); // Register the listener
 
         // Create label for "Pizzeria"
         JLabel pizzeriaLabel = new JLabel("Pizzeria");
@@ -133,5 +135,13 @@ public class AuthentificationPanel extends JPanel {
 
     public boolean isAdminSelected() {
         return adminRadioButton.isSelected();
+    }
+
+    public PhoneNumberListener getPhoneNumberListener() {
+        return phoneNumberListener; 
+    }
+
+    public boolean isRadioSelected() {
+        return clientRadioButton.isSelected() || adminRadioButton.isSelected() || livreurRadioButton.isSelected();
     }
 }
