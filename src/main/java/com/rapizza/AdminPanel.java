@@ -1,6 +1,9 @@
 package com.rapizza;
 
 import javax.swing.*;
+
+import com.rapizza.listeners.LogoutButtonListener;
+
 import java.awt.*;
 
 public class AdminPanel extends JPanel {
@@ -19,6 +22,10 @@ public class AdminPanel extends JPanel {
         JPanel logoutPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton logoutButton = new JButton("Logout");
         logoutButton.setPreferredSize(new Dimension(100, 30));
+
+        LogoutButtonListener logoutButtonListener = new LogoutButtonListener(this);
+        logoutButton.addActionListener(logoutButtonListener);
+
         logoutPanel.add(logoutButton);
         
         // Add the logout panel to the south border
@@ -56,9 +63,12 @@ public class AdminPanel extends JPanel {
         this.add(buttonPanel, BorderLayout.CENTER);
     }
 
-    public void showAdminPanel() {
+    // Not good because it's used in multiple classes
+    public void showAuthentificationPanel() {
         removeAll();
-        add(new AdminPanel());
+        AuthentificationPanel authentificationPanel = new AuthentificationPanel();
+        setLayout(new BorderLayout());
+        add(authentificationPanel);
         revalidate();
         repaint();
     }
