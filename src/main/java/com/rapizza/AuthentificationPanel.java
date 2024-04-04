@@ -62,6 +62,7 @@ public class AuthentificationPanel extends JPanel {
 
         // Create the login button
         JButton loginButton = new JButton("Login");
+        loginButton.setPreferredSize(new Dimension(125, 30));
 
         // Add login button to the panel
         loginButtonPanel.add(loginButton);
