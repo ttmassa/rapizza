@@ -14,16 +14,11 @@ public class App {
 
             // Create the main panel
             AuthentificationPanel mainPanel = new AuthentificationPanel();
-            mainWindow.add(mainPanel);
+
+            // Set layout manager of the content pane to BorderLayout
+            mainWindow.getContentPane().add(mainPanel);
+
             mainWindow.setLocationRelativeTo(null);
-
-            // // Create the admin panel
-            // AdminPanel adminPanel = new AdminPanel();
-            // mainWindow.getContentPane().add(adminPanel);
-
-            // // Create the client panel
-            // ClientPanel clientPanel = new ClientPanel();
-            // mainWindow.getContentPane().add(clientPanel);
 
             // Display the main window
             mainWindow.setVisible(true);

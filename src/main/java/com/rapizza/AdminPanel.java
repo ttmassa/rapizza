@@ -55,4 +55,11 @@ public class AdminPanel extends JPanel {
         // Add the button panel to the center of the main panel
         this.add(buttonPanel, BorderLayout.CENTER);
     }
+
+    public void showAdminPanel() {
+        removeAll();
+        add(new AdminPanel());
+        revalidate();
+        repaint();
+    }
 }

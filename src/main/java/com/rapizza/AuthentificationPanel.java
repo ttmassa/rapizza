@@ -1,9 +1,15 @@
 package com.rapizza;
 
 import javax.swing.*;
+
+import com.rapizza.listeners.LoginButtonListener;
+
 import java.awt.*;
 
 public class AuthentificationPanel extends JPanel {
+    private JRadioButton clientRadioButton;
+    private JRadioButton adminRadioButton;
+    private JRadioButton livreurRadioButton;
 
     public AuthentificationPanel() {
         // Set layout to GridBagLayout to center the components
@@ -58,18 +64,18 @@ public class AuthentificationPanel extends JPanel {
         JPanel radioPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
         // Create radio buttons
-        JRadioButton userRadioButton = new JRadioButton("User");
-        JRadioButton adminRadioButton = new JRadioButton("Admin");
-        JRadioButton livreurRadioButton = new JRadioButton("Livreur");
+        clientRadioButton = new JRadioButton("Client");
+        adminRadioButton = new JRadioButton("Admin");
+        livreurRadioButton = new JRadioButton("Livreur");
 
         // Group the radio buttons
         ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(userRadioButton);
+        buttonGroup.add(clientRadioButton);
         buttonGroup.add(adminRadioButton);
         buttonGroup.add(livreurRadioButton);
 
         // Add radio buttons to the panel
-        radioPanel.add(userRadioButton);
+        radioPanel.add(clientRadioButton);
         radioPanel.add(adminRadioButton);
         radioPanel.add(livreurRadioButton);
 
@@ -87,6 +93,9 @@ public class AuthentificationPanel extends JPanel {
         JButton loginButton = new JButton("Login");
         loginButton.setPreferredSize(new Dimension(125, 30));
 
+        LoginButtonListener loginButtonListener = new LoginButtonListener(this);
+        loginButton.addActionListener(loginButtonListener);
+
         // Add login button to the panel
         loginButtonPanel.add(loginButton);
 
@@ -94,5 +103,35 @@ public class AuthentificationPanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 3;
         this.add(loginButtonPanel, gbc);
+    }
+
+    public void showClientPanel() {
+        removeAll();
+        ClientPanel clientPanel = new ClientPanel();
+        this.setLayout(new BorderLayout());
+        add(clientPanel);
+        revalidate();
+        repaint();
+    }
+
+    public void showAdminPanel() {
+        removeAll();
+        AdminPanel adminPanel = new AdminPanel();
+        this.setLayout(new BorderLayout());
+        add(adminPanel);
+        revalidate();
+        repaint();
+    }
+
+    public boolean isClientSelected() {
+        return clientRadioButton.isSelected();
+    }
+
+    public boolean isLivreurSelected() {
+        return livreurRadioButton.isSelected();
+    }
+
+    public boolean isAdminSelected() {
+        return adminRadioButton.isSelected();
     }
 }
