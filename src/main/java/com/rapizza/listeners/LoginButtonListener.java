@@ -17,6 +17,7 @@ public class LoginButtonListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        // Check if the radio button is selected and the phone number is filled
         if (authPanel.isRadioSelected() && authPanel.getPhoneNumberListener().isFilled()) {
             // Check which radio button is selected
             if (authPanel.isClientSelected()) {
@@ -27,6 +28,7 @@ public class LoginButtonListener implements ActionListener {
                 authPanel.showAdminPanel();
             } 
         } else {
+            // Display an error message
             JOptionPane.showMessageDialog(null, "Please fill in a valid phone number and sleect a user type");
             System.out.println("Please fill in a valid phone number and sleect a user type");
         }
