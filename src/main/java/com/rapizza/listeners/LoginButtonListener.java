@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import com.rapizza.AuthentificationPanel;
+import com.rapizza.Client;
 
 public class LoginButtonListener implements ActionListener {
 
@@ -23,6 +24,8 @@ public class LoginButtonListener implements ActionListener {
             if (authPanel.isClientSelected()) {
                 // Show the ClientPanel
                 authPanel.showClientPanel();
+                Client client = new Client(authPanel.getPhoneNumberListener().getPhoneNumber(), authPanel.getPizzeria());
+                System.out.println("Client created: " + client.pizzeria);
             } else if (authPanel.isAdminSelected()) {
                 // Show the AdminPanel
                 authPanel.showAdminPanel();

@@ -5,11 +5,16 @@ import com.rapizza.listeners.LoginButtonListener;
 import com.rapizza.listeners.PhoneNumberListener;
 import java.awt.*;
 
+/*
+ *  Get all the pizzerias from a newly created Vector<Pizzeria> and add the adress of each pizzeria to the JComboBox 
+ */
+
 public class AuthentificationPanel extends JPanel {
     private JRadioButton clientRadioButton;
     private JRadioButton adminRadioButton;
     private JRadioButton livreurRadioButton;
-    private PhoneNumberListener phoneNumberListener; // Add this line
+    private PhoneNumberListener phoneNumberListener; 
+    private JComboBox<String> pizzeriaComboBox = new JComboBox<>();
 
     public AuthentificationPanel() {
         // Set layout to GridBagLayout to center the components
@@ -48,10 +53,10 @@ public class AuthentificationPanel extends JPanel {
         this.add(pizzeriaLabel, gbc);
 
         // Create a combo box for pizzerias
-        JComboBox<String> pizzeriaComboBox = new JComboBox<>();
-        pizzeriaComboBox.addItem("1 rue de la pizza");
-        pizzeriaComboBox.addItem("2 rue de la pizza");
-        pizzeriaComboBox.addItem("3 rue de la pizza");
+        for (int i = 0; i < Pizzeria.listPizzerias.size(); i++) {
+            String adresse = Pizzeria.listPizzerias.get(i).adresse;
+            pizzeriaComboBox.addItem(adresse);
+        }
 
         pizzeriaComboBox.setPreferredSize(new Dimension(150, 24));
 
@@ -143,5 +148,9 @@ public class AuthentificationPanel extends JPanel {
 
     public boolean isRadioSelected() {
         return clientRadioButton.isSelected() || adminRadioButton.isSelected() || livreurRadioButton.isSelected();
+    }
+
+    public Pizzeria getPizzeria() {
+        return (Pizzeria) pizzeriaComboBox.getSelectedItem();
     }
 }

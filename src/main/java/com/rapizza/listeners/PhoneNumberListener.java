@@ -36,4 +36,8 @@ public class PhoneNumberListener implements DocumentListener {
     private void updateState() {
         isFilled = !phoneNumberTextField.getText().isEmpty();
     }
+
+    public String getPhoneNumber() {
+        return phoneNumberTextField.getText();
+    }
 }
