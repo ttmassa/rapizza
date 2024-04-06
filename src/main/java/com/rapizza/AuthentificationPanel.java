@@ -53,10 +53,15 @@ public class AuthentificationPanel extends JPanel {
         this.add(pizzeriaLabel, gbc);
 
         // Create a combo box for pizzerias
-        for (int i = 0; i < Pizzeria.listPizzerias.size(); i++) {
-            String adresse = Pizzeria.listPizzerias.get(i).adresse;
-            pizzeriaComboBox.addItem(adresse);
+        if (Pizzeria.listPizzerias.size() == 0) {
+            pizzeriaComboBox.addItem("No pizzerias available");
+        } else {
+            for (int i = 0; i < Pizzeria.listPizzerias.size(); i++) {
+                String adresse = Pizzeria.listPizzerias.get(i).adresse;
+                pizzeriaComboBox.addItem(adresse);
+            }    
         }
+
 
         pizzeriaComboBox.setPreferredSize(new Dimension(150, 24));
 

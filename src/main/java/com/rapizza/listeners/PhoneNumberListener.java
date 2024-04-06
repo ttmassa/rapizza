@@ -40,4 +40,10 @@ public class PhoneNumberListener implements DocumentListener {
     public String getPhoneNumber() {
         return phoneNumberTextField.getText();
     }
+
+    public boolean isValid() {
+        // Every phone number must have 10 digits and no letters
+        String phoneNumber = phoneNumberTextField.getText();
+        return phoneNumber.length() == 10 && phoneNumber.matches("[0-9]+");
+    }
 }
