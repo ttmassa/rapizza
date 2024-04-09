@@ -30,7 +30,6 @@ public class Pizzeria {
         this.menu = new Vector<Pizza>();
         this.listCo = new Vector<Commande>();
         this.listLivreur = new Vector<Livreur>();
-        listPizzerias.add(this);
     }
 
     public void fabriquerCommande(Commande commande) {

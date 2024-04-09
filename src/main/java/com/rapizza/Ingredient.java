@@ -15,9 +15,8 @@ public class Ingredient {
      * Associations
      */
     public Vector<LigneRecette> listIngr;
-    // For the GUI
+    // For the GUI 
     static public Vector<Ingredient> listIngredients = new Vector<Ingredient>();
-
 
     /**
      * Default constructor
@@ -49,6 +48,14 @@ public class Ingredient {
         for (LigneRecette ligne : this.listIngr) {
             System.out.println(ligne.toString());
         }
+    }
+
+    public Vector<Ingredient> getListIngredients() {
+        return listIngredients;
+    }
+
+    public void setListIngredients(Vector<Ingredient> listIngredients) {
+        Ingredient.listIngredients = listIngredients;
     }
 
 }

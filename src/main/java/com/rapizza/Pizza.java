@@ -20,6 +20,8 @@ public class Pizza {
     public Pizzeria pizzeria;
     public Vector<LigneRecette> listLigneR;
     public Vector<LigneC> listLigne;
+    // For the GUI
+    static public Vector<Pizza> listPizzas = new Vector<Pizza>();
 
 
     /**

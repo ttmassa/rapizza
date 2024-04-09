@@ -3,6 +3,9 @@ package com.rapizza;
 import java.awt.*;
 import java.util.Vector;
 import javax.swing.*;
+
+import com.rapizza.listeners.AddIngredientButtonListener;
+import com.rapizza.listeners.AddPizzeriaButtonListener;
 import com.rapizza.listeners.LogoutButtonListener;
 
 public class AdminPanel extends JPanel {
@@ -35,7 +38,7 @@ public class AdminPanel extends JPanel {
 
         // Row 1: Add a Pizza
         JPanel addPizzaPanel = new JPanel(new GridBagLayout());
-        addPizzaPanel.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the row horizontally
+        addPizzaPanel.setAlignmentX(Component.CENTER_ALIGNMENT); 
         GridBagConstraints gbc = new GridBagConstraints();
 
         JLabel addPizzaLabel = new JLabel("Add a Pizza");
@@ -65,9 +68,15 @@ public class AdminPanel extends JPanel {
         addPizzaPanel.add(pizzaPriceField, gbc);
 
         // Add checkboxes for ingredients inside JScrollPane for sliding effect
-        String[] ingredients = {"Cheese", "Pepperoni", "Mushrooms", "Onions", "Peppers"};
+        
+        // Get the list of ingredients names from the Ingredient class
+        Vector<String> ingredients = new Vector<>();
+        for (Ingredient ingredient : Ingredient.listIngredients) {
+            ingredients.add(ingredient.nom);
+        }
+
         Vector<JCheckBox> ingredientCheckboxes = new Vector<>();
-        JPanel ingredientPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Use FlowLayout for horizontal arrangement
+        JPanel ingredientPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         for (String ingredient : ingredients) {
             JCheckBox checkBox = new JCheckBox(ingredient);
             ingredientCheckboxes.add(checkBox);
@@ -75,29 +84,29 @@ public class AdminPanel extends JPanel {
         }
         JScrollPane scrollPane = new JScrollPane(ingredientPanel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        scrollPane.setPreferredSize(new Dimension(300, 50)); // Set preferred size to limit initial height
+        scrollPane.setPreferredSize(new Dimension(300, 50)); 
         gbc.gridx = 4;
         gbc.gridy = 0;
-        gbc.insets = new Insets(0, 0, 0, 5); // Add right padding
+        gbc.insets = new Insets(0, 0, 0, 5); 
         addPizzaPanel.add(scrollPane, gbc);
 
         // Add a button to create the pizza
         JButton addPizzaButton = new JButton("Create Pizza");
         gbc.gridx = 5;
         gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.EAST; // Align to the right
+        gbc.anchor = GridBagConstraints.EAST; 
         addPizzaPanel.add(addPizzaButton, gbc);
 
         // Create top margin for the panel
         addPizzaPanel.setBorder(BorderFactory.createEmptyBorder(50, 0, 0, 0));
         mainContentPanel.add(addPizzaPanel);
 
-        // Add vertical glue to create space between rows
-        mainContentPanel.add(Box.createVerticalGlue());
+        // Add vertical strut to create space between rows
+        mainContentPanel.add(Box.createVerticalStrut(10));
 
         // Row 2: Add a Pizzeria
         JPanel addPizzeriaPanel = new JPanel(new GridBagLayout());
-        addPizzeriaPanel.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the row horizontally
+        addPizzeriaPanel.setAlignmentX(Component.CENTER_ALIGNMENT); 
 
         JLabel addPizzeriaLabel = new JLabel("Add a Pizzeria");
         gbc.gridx = 0;
@@ -118,14 +127,18 @@ public class AdminPanel extends JPanel {
         gbc.anchor = GridBagConstraints.EAST;
         addPizzeriaPanel.add(addPizzeriaButton, gbc);
 
+        // Add the listener to the button
+        AddPizzeriaButtonListener addPizzeriaButtonListener = new AddPizzeriaButtonListener(pizzeriaAddressField);
+        addPizzeriaButton.addActionListener(addPizzeriaButtonListener);
+
         mainContentPanel.add(addPizzeriaPanel);
 
-        // Add vertical glue to create space between rows
-        mainContentPanel.add(Box.createVerticalGlue());
+        // Add vertical strut to create space between rows
+        mainContentPanel.add(Box.createVerticalStrut(10));
 
         // Row 3: Recruit
         JPanel recruitPanel = new JPanel(new GridBagLayout());
-        recruitPanel.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the row horizontally
+        recruitPanel.setAlignmentX(Component.CENTER_ALIGNMENT); 
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
@@ -151,6 +164,53 @@ public class AdminPanel extends JPanel {
 
         mainContentPanel.add(recruitPanel);
 
+        // Add vertical strut to create space between rows
+        mainContentPanel.add(Box.createVerticalStrut(10));
+
+        //Row 4: Add an Ingredient
+        JPanel addIngredientPanel = new JPanel(new GridBagLayout());
+        addIngredientPanel.setAlignmentX(Component.CENTER_ALIGNMENT); 
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+
+        JLabel addIngredientLabel = new JLabel("Add an Ingredient");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(0, 0, 0, 10);
+        addIngredientPanel.add(addIngredientLabel, gbc);
+
+        JTextField ingredientNameField = new JTextField(10);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(0, 0, 0, 10);
+        addIngredientPanel.add(ingredientNameField, gbc);
+
+        JLabel ingredientPriceLabel = new JLabel("Price");
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(0, 0, 0, 10);
+        addIngredientPanel.add(ingredientPriceLabel, gbc);
+
+        JTextField ingredientPriceField = new JTextField(10);
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(0, 0, 0, 10);
+        addIngredientPanel.add(ingredientPriceField, gbc);
+
+        JButton addIngredientButton = new JButton("Add Ingredient");
+        gbc.gridx = 4;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.EAST;
+        addIngredientPanel.add(addIngredientButton, gbc);
+
+        // Add the listener to the button
+        AddIngredientButtonListener addIngredientButtonListener = new AddIngredientButtonListener(ingredientNameField, ingredientPriceField, this);
+        addIngredientButton.addActionListener(addIngredientButtonListener);
+
+        mainContentPanel.add(addIngredientPanel);
+
         add(mainContentPanel, BorderLayout.CENTER);
     }
 
@@ -168,6 +228,15 @@ public class AdminPanel extends JPanel {
         AuthentificationPanel authentificationPanel = new AuthentificationPanel();
         setLayout(new BorderLayout());
         add(authentificationPanel);
+        revalidate();
+        repaint();
+    }
+
+    public void refreshPanel() {
+        removeAll();
+        AdminPanel adminPanel = new AdminPanel();
+        setLayout(new BorderLayout());
+        add(adminPanel);
         revalidate();
         repaint();
     }
