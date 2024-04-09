@@ -15,6 +15,8 @@ public class Ingredient {
      * Associations
      */
     public Vector<LigneRecette> listIngr;
+    // For the GUI
+    static public Vector<Ingredient> listIngredients = new Vector<Ingredient>();
 
 
     /**

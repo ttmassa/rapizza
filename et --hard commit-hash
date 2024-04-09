@@ -1,0 +1,249 @@
+[33mcommit 14d6c4ea7d8113d2dd89a05de2a3fbee4c9d345e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sat Apr 6 11:39:17 2024 +0200
+
+    verify if phone number is valid
+
+[33mcommit c774f653b3376782160fb6e0108341e8108e0883[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sat Apr 6 11:26:16 2024 +0200
+
+    pizzerias list of combo box represents actual pizzerias
+
+[33mcommit 371ef6a16d71f6de0a96ec4f17e5a64a8a03fc90[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 19:53:34 2024 +0200
+
+    check if phone number text field is filled
+
+[33mcommit 985c2daaf2e143f408e45afe1713ce0fc99021ea[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 19:52:29 2024 +0200
+
+    prevent the user to login without a valid authentification form
+
+[33mcommit 7a636d02cc4e774274d517bc06afcd0579dde978[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 18:07:09 2024 +0200
+
+    add logout button's listener
+
+[33mcommit 31855031852d60c5332f3fdc69d4c5e8877833f0[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 17:47:20 2024 +0200
+
+    add login button listener
+
+[33mcommit afb8af9b883bb4c507cd547ea13f2fb64acfd237[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 17:03:55 2024 +0200
+
+    change client panel toolbar's links to JLabel
+
+[33mcommit e54560c83180a540a23499ade508de4eb85f5a8f[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 13:07:25 2024 +0200
+
+    display authentificationPanel by default
+
+[33mcommit 0ce5c9ce2926172a1c2c5dc1c425f61d67328d44[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 13:06:41 2024 +0200
+
+    create client panel
+
+[33mcommit 2a36445aaa76041c574e27fb9051ecdf755b952b[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 12:36:54 2024 +0200
+
+    add pizzeria choice to authentification panel
+
+[33mcommit 8b47032e6f0c87ee795af1e1d4120369d600129b[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 12:23:32 2024 +0200
+
+    create admin panel (only front)
+
+[33mcommit 3f2c5becb0134a9941bf2ad5f11f7b0fd8f81cde[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Apr 4 10:54:55 2024 +0200
+
+    modify login button's style
+
+[33mcommit 0cc6eb719a79406d8e2aeadb664892095fe70e1a[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Wed Apr 3 19:43:07 2024 +0200
+
+    ignore .class files
+
+[33mcommit 21eb1789069872e1985c9a14ca113223811dd7af[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Wed Apr 3 18:47:07 2024 +0200
+
+    create authentification panel (front only)
+
+[33mcommit 9ce46e5ca48bce948f9be9d5d667c22fd9aa0fd5[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Mon Apr 1 18:19:04 2024 +0200
+
+    setup basic JPanel
+
+[33mcommit 7251422f909051f7a19756578bd6206bc03d66e2[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Mon Apr 1 18:06:28 2024 +0200
+
+    create App.java file for main swing logic
+
+[33mcommit 2e429cb6a03daab2ca6af48e79226673501f64db[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Mon Apr 1 11:15:24 2024 +0200
+
+    client can now only order pizzas from the menu
+
+[33mcommit bdb8f0e5f4dfd2d8c1be0b2de981156c556be74a[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Mon Apr 1 11:04:26 2024 +0200
+
+    change java.util.* imports for performance
+
+[33mcommit 2da2cf09b0a70b0097f84b9a56d9e8e6c8252c14[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sun Mar 31 17:42:05 2024 +0200
+
+    improve menu display
+
+[33mcommit 0b5744293638175be76352514e768da88eaa0a0b[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sun Mar 31 12:31:01 2024 +0200
+
+    automatically create LigneRecette when creating a Pizza
+
+[33mcommit cc161a02e75e40b8993ee528ef0e40f1ab28c095[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sun Mar 31 12:03:34 2024 +0200
+
+    add production cost to pizza's price
+
+[33mcommit bcb9bb9eaa447fcd56cb2dea471b4f655df3d074[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sun Mar 31 12:02:21 2024 +0200
+
+    TaillePizza's ratios now work
+
+[33mcommit f335925f801eb234d1d106f27839fb87b0705938[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sun Mar 31 11:46:57 2024 +0200
+
+    add timer to stimulate delivery time during execution
+
+[33mcommit 52de59a44b0f70d66b0b4d955611ec3a8a56e588[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sun Mar 31 11:33:28 2024 +0200
+
+    remove useless method
+
+[33mcommit fb7c5175de230f7f454228425aba87ebe96463e8[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sun Mar 31 11:31:17 2024 +0200
+
+    change client getter in payer()
+
+[33mcommit 1a93bbb678d86d939917ce3df90f863eb0782296[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sat Mar 30 23:01:08 2024 +0100
+
+    update: program can stimulate complete delivery
+
+[33mcommit af1586c058f123444865c98bcfa0d15931c8594f[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sat Mar 30 19:18:01 2024 +0100
+
+    client can now choose pizza just by giving a name
+
+[33mcommit 1dcf7909f76dfe23e1be869a57041d34a45f4b6f[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Sat Mar 30 19:05:23 2024 +0100
+
+    modified the pizza-making process
+
+[33mcommit c736ee8fbb2092ae1766e20196f7b3e694ecd840[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Fri Mar 29 14:19:43 2024 +0100
+
+    pizzeria verify if pizzas from an order are alvailable
+
+[33mcommit cc102c897a003b9f8c63729bb6049286a661f228[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Fri Mar 29 14:10:45 2024 +0100
+
+    update method to deliver the order once it's setup
+
+[33mcommit 3587826d54c2622564a0bc086d67a48c571002a0[m
+Merge: 8ffb527 59745cb
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Fri Mar 29 11:17:11 2024 +0100
+
+    Merge branch 'main' of github.com:ttmassa/rapizza
+
+[33mcommit 8ffb5278c4a177f8eb780b4ffef15dcac65befe1[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Fri Mar 29 11:17:03 2024 +0100
+
+    add delivery final methods
+
+[33mcommit 59745cb36c217c2eee537041724303b5c1d195af[m
+Author: ttmassa <102767736+ttmassa@users.noreply.github.com>
+Date:   Thu Mar 28 20:03:42 2024 +0100
+
+    Update README.md
+
+[33mcommit e186f622c69f3df319d78d88c75d43b20bc9b942[m
+Author: ttmassa <102767736+ttmassa@users.noreply.github.com>
+Date:   Thu Mar 28 20:03:16 2024 +0100
+
+    Update README.md
+
+[33mcommit b0b55182fc9aba0b49e415a0caa7f9af5578e8b3[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Mar 28 19:57:38 2024 +0100
+
+    changed order system to correctly create Command class
+
+[33mcommit a68dad50755a404c0eab6a69d814f9899c59fa92[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Mar 28 18:52:33 2024 +0100
+
+    add delivery methods
+
+[33mcommit 475dc21e3c1d1a1492d6a01faf11148da49a2f24[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Mar 28 17:49:38 2024 +0100
+
+    add order verification methods
+
+[33mcommit d82c2616a05ad783b674752cefc09f2f35079295[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Mar 28 17:29:48 2024 +0100
+
+    add Livraison's methods
+
+[33mcommit 6329bce37adf2e2fc895afc746cc35a1b3ca309e[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Mar 28 12:20:31 2024 +0100
+
+    add payment methods
+
+[33mcommit bc31bb4c8fc79c4a40a9be88b808ace585cb1336[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Mar 28 11:02:10 2024 +0100
+
+    create default constructor
+
+[33mcommit 6197f622a00882bb9a69ca594cb502c9fb9ccf06[m
+Author: Massa Timothée <timothee.massa.perso@gmail.com>
+Date:   Thu Mar 28 10:47:28 2024 +0100
+
+    replace Set by Vector
+
+[33mcommit 439188425569cd16489e79e753ffe01ae8056603[m
+Author: Massa Timothée <timothee.massa.perso
