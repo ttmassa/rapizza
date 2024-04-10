@@ -5,8 +5,10 @@ import java.util.Vector;
 import javax.swing.*;
 
 import com.rapizza.listeners.AddIngredientButtonListener;
+import com.rapizza.listeners.AddPizzaButtonListener;
 import com.rapizza.listeners.AddPizzeriaButtonListener;
 import com.rapizza.listeners.LogoutButtonListener;
+import com.rapizza.listeners.RecruitButtonListener;
 
 public class AdminPanel extends JPanel {
     public AdminPanel() {
@@ -35,13 +37,63 @@ public class AdminPanel extends JPanel {
         // Create main content panel with BoxLayout
         JPanel mainContentPanel = new JPanel();
         mainContentPanel.setLayout(new BoxLayout(mainContentPanel, BoxLayout.Y_AXIS));
+        GridBagConstraints gbc = new GridBagConstraints();        
 
-        // Row 1: Add a Pizza
+        // Row 1: Add a Pizzeria
+
+        // Add a title to the row 1
+        JLabel addPizzeriaTitle = new JLabel("Add a Pizzeria");
+        addPizzeriaTitle.setFont(new Font("Arial", Font.BOLD, 16));
+        addPizzeriaTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Create top margin for the title
+        addPizzeriaTitle.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
+        mainContentPanel.add(addPizzeriaTitle);
+
+        JPanel addPizzeriaPanel = new JPanel(new GridBagLayout());
+        addPizzeriaPanel.setAlignmentX(Component.CENTER_ALIGNMENT); 
+
+        JLabel addPizzeriaLabel = new JLabel("Adress");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(0, 0, 0, 10);
+        addPizzeriaPanel.add(addPizzeriaLabel, gbc);
+
+        JTextField pizzeriaAddressField = new JTextField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(0, 0, 0, 10);
+        addPizzeriaPanel.add(pizzeriaAddressField, gbc);
+
+        JButton addPizzeriaButton = new JButton("Add a Pizzeria");
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.EAST;
+        addPizzeriaPanel.add(addPizzeriaButton, gbc);
+
+        // Add the listener to the button
+        AddPizzeriaButtonListener addPizzeriaButtonListener = new AddPizzeriaButtonListener(pizzeriaAddressField, this);
+        addPizzeriaButton.addActionListener(addPizzeriaButtonListener);
+
+        mainContentPanel.add(addPizzeriaPanel);
+
+        // Add vertical strut to create space between rows
+        mainContentPanel.add(Box.createVerticalStrut(10));
+        
+
+        // Row 2: Add a Pizza
+
+        // Add a title to the row 2
+        JLabel addPizzaTitle = new JLabel("Add a Pizza");
+        addPizzaTitle.setFont(new Font("Arial", Font.BOLD, 16));
+        addPizzaTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        mainContentPanel.add(addPizzaTitle);
+
         JPanel addPizzaPanel = new JPanel(new GridBagLayout());
         addPizzaPanel.setAlignmentX(Component.CENTER_ALIGNMENT); 
-        GridBagConstraints gbc = new GridBagConstraints();
 
-        JLabel addPizzaLabel = new JLabel("Add a Pizza");
+        JLabel addPizzaLabel = new JLabel("Name");
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.insets = new Insets(0, 0, 0, 5); 
@@ -82,6 +134,7 @@ public class AdminPanel extends JPanel {
             ingredientCheckboxes.add(checkBox);
             ingredientPanel.add(checkBox);
         }
+        
         JScrollPane scrollPane = new JScrollPane(ingredientPanel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollPane.setPreferredSize(new Dimension(300, 50)); 
@@ -97,64 +150,53 @@ public class AdminPanel extends JPanel {
         gbc.anchor = GridBagConstraints.EAST; 
         addPizzaPanel.add(addPizzaButton, gbc);
 
-        // Create top margin for the panel
-        addPizzaPanel.setBorder(BorderFactory.createEmptyBorder(50, 0, 0, 0));
+        // Add the listener to the button
+        AddPizzaButtonListener addPizzaButtonListener = new AddPizzaButtonListener(pizzaNameField, pizzaPriceField, ingredientCheckboxes, this);
+        addPizzaButton.addActionListener(addPizzaButtonListener);
+
         mainContentPanel.add(addPizzaPanel);
 
         // Add vertical strut to create space between rows
         mainContentPanel.add(Box.createVerticalStrut(10));
 
-        // Row 2: Add a Pizzeria
-        JPanel addPizzeriaPanel = new JPanel(new GridBagLayout());
-        addPizzeriaPanel.setAlignmentX(Component.CENTER_ALIGNMENT); 
 
-        JLabel addPizzeriaLabel = new JLabel("Add a Pizzeria");
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(0, 0, 0, 10);
-        addPizzeriaPanel.add(addPizzeriaLabel, gbc);
-
-        JTextField pizzeriaAddressField = new JTextField(20);
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.insets = new Insets(0, 0, 0, 10);
-        addPizzeriaPanel.add(pizzeriaAddressField, gbc);
-
-        JButton addPizzeriaButton = new JButton("Add a Pizzeria");
-        gbc.gridx = 3;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.EAST;
-        addPizzeriaPanel.add(addPizzeriaButton, gbc);
-
-        // Add the listener to the button
-        AddPizzeriaButtonListener addPizzeriaButtonListener = new AddPizzeriaButtonListener(pizzeriaAddressField);
-        addPizzeriaButton.addActionListener(addPizzeriaButtonListener);
-
-        mainContentPanel.add(addPizzeriaPanel);
-
-        // Add vertical strut to create space between rows
-        mainContentPanel.add(Box.createVerticalStrut(10));
 
         // Row 3: Recruit
+
+        // Add a title to the row 3
+        JLabel recruitTitle = new JLabel("Recruit");
+        recruitTitle.setFont(new Font("Arial", Font.BOLD, 16));
+        recruitTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        mainContentPanel.add(recruitTitle);
+
         JPanel recruitPanel = new JPanel(new GridBagLayout());
         recruitPanel.setAlignmentX(Component.CENTER_ALIGNMENT); 
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
 
-        JLabel recruitLabel = new JLabel("Recruit a Delivery Guy");
+        JLabel recruitLabel = new JLabel("Choose pizzeria");
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(0, 0, 0, 10);
         recruitPanel.add(recruitLabel, gbc);
 
-        JComboBox<String> deliveryGuyComboBox = new JComboBox<>(new Vector<>()); 
+        JComboBox<String> pizzeriaComboBox = new JComboBox<>(new Vector<>()); 
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.insets = new Insets(0, 0, 0, 10);
-        recruitPanel.add(deliveryGuyComboBox, gbc);
+
+        // Add the pizzerias to the combo box
+        if (Pizzeria.listPizzerias.size() == 0) {
+            pizzeriaComboBox.addItem("No pizzerias available");
+        } else {
+            for (Pizzeria pizzeria : Pizzeria.listPizzerias) {
+                pizzeriaComboBox.addItem(pizzeria.adresse);
+            }
+        }
+
+        recruitPanel.add(pizzeriaComboBox, gbc);
 
         JButton recruitButton = new JButton("Recruit");
         gbc.gridx = 3;
@@ -162,19 +204,30 @@ public class AdminPanel extends JPanel {
         gbc.anchor = GridBagConstraints.EAST;
         recruitPanel.add(recruitButton, gbc);
 
+        // Add the listener to the button
+        RecruitButtonListener recruitButtonListener = new RecruitButtonListener(pizzeriaComboBox, this);
+        recruitButton.addActionListener(recruitButtonListener);
+
         mainContentPanel.add(recruitPanel);
 
         // Add vertical strut to create space between rows
         mainContentPanel.add(Box.createVerticalStrut(10));
 
         //Row 4: Add an Ingredient
+
+        // Add a title to the row 4
+        JLabel addIngredientTitle = new JLabel("Add an Ingredient");
+        addIngredientTitle.setFont(new Font("Arial", Font.BOLD, 16));
+        addIngredientTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        mainContentPanel.add(addIngredientTitle);
+
         JPanel addIngredientPanel = new JPanel(new GridBagLayout());
         addIngredientPanel.setAlignmentX(Component.CENTER_ALIGNMENT); 
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
 
-        JLabel addIngredientLabel = new JLabel("Add an Ingredient");
+        JLabel addIngredientLabel = new JLabel("Name");
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
@@ -187,7 +240,7 @@ public class AdminPanel extends JPanel {
         gbc.insets = new Insets(0, 0, 0, 10);
         addIngredientPanel.add(ingredientNameField, gbc);
 
-        JLabel ingredientPriceLabel = new JLabel("Price");
+        JLabel ingredientPriceLabel = new JLabel("Price/kg");
         gbc.gridx = 2;
         gbc.gridy = 0;
         gbc.insets = new Insets(0, 0, 0, 10);

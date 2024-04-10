@@ -5,23 +5,25 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import com.rapizza.AdminPanel;
 import com.rapizza.Ingredient;
 import com.rapizza.Pizza;
 
 public class AddPizzaButtonListener implements ActionListener {
     private JTextField pizzaName;
     private JTextField pizzaPrice;
-    private JComboBox<JCheckBox> listIngredients;
+    private Vector<JCheckBox> listIngredients;
+    private AdminPanel adminPanel;
 
 
-    public AddPizzaButtonListener(JTextField pizzaName, JTextField pizzaPrice, JComboBox<JCheckBox> listIngredients) {
+    public AddPizzaButtonListener(JTextField pizzaName, JTextField pizzaPrice, Vector<JCheckBox> listIngredients, AdminPanel adminPanel) {
         this.pizzaName = pizzaName;
         this.pizzaPrice = pizzaPrice;
         this.listIngredients = listIngredients;
+        this.adminPanel = adminPanel;
     }
 
     @Override
@@ -39,11 +41,11 @@ public class AddPizzaButtonListener implements ActionListener {
         double priceDouble = Double.parseDouble(price);    
         
         // Get the selected ingredients
-        Vector<Ingredient> ingredients = new Vector<Ingredient>();
-        for (int i = 0; i < listIngredients.getItemCount(); i++) {
-            JCheckBox checkBox = (JCheckBox) listIngredients.getItemAt(i);
+        Vector<Ingredient> ingredients = new Vector<>();
+        for (JCheckBox checkBox : listIngredients) {
             if (checkBox.isSelected()) {
-                ingredients.add(Ingredient.listIngredients.get(i));
+                Ingredient ingredient = Ingredient.listIngredients.get(listIngredients.indexOf(checkBox));
+                ingredients.add(ingredient);
             }
         }
 
@@ -55,11 +57,8 @@ public class AddPizzaButtonListener implements ActionListener {
         pizzaName.setText("");
         pizzaPrice.setText("");
 
-        // Refresh the checkbox list
-        for (int i = 0; i < listIngredients.getItemCount(); i++) {
-            JCheckBox checkBox = (JCheckBox) listIngredients.getItemAt(i);
-            checkBox.setSelected(false);
-        }
+        // Refresh the pizza list
+        adminPanel.refreshPanel();
 
         // Display a success message
         JOptionPane.showMessageDialog(null, "Pizza added successfully");

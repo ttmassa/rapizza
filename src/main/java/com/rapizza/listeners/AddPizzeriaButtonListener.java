@@ -6,13 +6,16 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import com.rapizza.AdminPanel;
 import com.rapizza.Pizzeria;
 
 public class AddPizzeriaButtonListener implements ActionListener {
+    private AdminPanel adminPanel;
     private JTextField adresse;
 
-    public AddPizzeriaButtonListener(JTextField adresse) {
+    public AddPizzeriaButtonListener(JTextField adresse, AdminPanel adminPanel) {
         this.adresse = adresse;
+        this.adminPanel = adminPanel;
     }
 
     @Override
@@ -31,6 +34,9 @@ public class AddPizzeriaButtonListener implements ActionListener {
 
         // Clear the text field
         adresse.setText("");
+
+        // Refresh the entire panel
+        adminPanel.refreshPanel();
 
         // Display a success message
         JOptionPane.showMessageDialog(null, "Pizzeria added successfully");
