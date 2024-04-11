@@ -20,9 +20,9 @@ public class AdminPanel extends JPanel {
         toolBar.setFloatable(false); 
         toolBar.setBackground(Color.WHITE); 
 
-        JButton profileButton = new JButton("Profile");
-        configureLinkButton(profileButton);
-        toolBar.add(profileButton);
+        JButton infoButton = new JButton("Info");
+        configureLinkButton(infoButton);
+        toolBar.add(infoButton);
 
         // Logout button
         JButton logoutButton = new JButton("Logout");

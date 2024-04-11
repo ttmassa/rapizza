@@ -19,7 +19,7 @@ public class LoginButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // Check if the radio button is selected and the phone number is filled
-        if (authPanel.isRadioSelected() && authPanel.getPhoneNumberListener().isValid()) {
+        if (authPanel.isRadioSelected() /*&& authPanel.getPhoneNumberListener().isValid()*/) {
             // Check which radio button is selected
             if (authPanel.isClientSelected()) {
                 // Show the ClientPanel
