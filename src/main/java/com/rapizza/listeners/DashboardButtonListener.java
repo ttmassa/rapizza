@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import com.rapizza.AdminInfoPanel;
+import com.rapizza.AdminPanel;
 
-public class InfoButtonListener implements ActionListener {
+public class DashboardButtonListener implements ActionListener {
     private JPanel parentPanel;
 
-    public InfoButtonListener(JPanel parentPanel) {
+    public DashboardButtonListener(JPanel parentPanel) {
         this.parentPanel = parentPanel;
     }
 
@@ -19,10 +19,9 @@ public class InfoButtonListener implements ActionListener {
         if (parentPanel != null) {
             // Show the AdminInfoPanel
             parentPanel.removeAll();
-            parentPanel.add(new AdminInfoPanel());
+            parentPanel.add(new AdminPanel());
             parentPanel.revalidate();
             parentPanel.repaint();
         }
     }
-    
 }

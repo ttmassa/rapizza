@@ -7,6 +7,8 @@ import javax.swing.*;
 import com.rapizza.listeners.AddIngredientButtonListener;
 import com.rapizza.listeners.AddPizzaButtonListener;
 import com.rapizza.listeners.AddPizzeriaButtonListener;
+import com.rapizza.listeners.DashboardButtonListener;
+import com.rapizza.listeners.InfoButtonListener;
 import com.rapizza.listeners.LogoutButtonListener;
 import com.rapizza.listeners.RecruitButtonListener;
 
@@ -20,9 +22,21 @@ public class AdminPanel extends JPanel {
         toolBar.setFloatable(false); 
         toolBar.setBackground(Color.WHITE); 
 
+        // Dashboard button
+        JButton dashboardButton = new JButton("Dashboard");
+        configureLinkButton(dashboardButton);
+        toolBar.add(dashboardButton);
+
+        // Add a listener to the dashboard button
+        dashboardButton.addActionListener(new DashboardButtonListener(this));
+
         JButton infoButton = new JButton("Info");
         configureLinkButton(infoButton);
         toolBar.add(infoButton);
+
+        // Add a listener to the button
+        InfoButtonListener infoButtonListener = new InfoButtonListener(this);
+        infoButton.addActionListener(infoButtonListener);
 
         // Logout button
         JButton logoutButton = new JButton("Logout");

@@ -3,35 +3,24 @@ package com.rapizza.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.rapizza.AdminInfoPanel;
-import com.rapizza.AdminPanel;
-import com.rapizza.ClientPanel;
+import javax.swing.JPanel;
+
+import com.rapizza.AuthentificationPanel;
 
 public class LogoutButtonListener implements ActionListener {
-    private AdminPanel adminPanel;
-    private ClientPanel clientPanel;
-    private AdminInfoPanel adminInfoPanel;
+    private JPanel parentPanel;
 
-    public LogoutButtonListener(AdminPanel adminPanel) {
-        this.adminPanel = adminPanel;
-    }
-
-    public LogoutButtonListener(ClientPanel clientPanel) {
-        this.clientPanel = clientPanel;
-    }
-
-    public LogoutButtonListener(AdminInfoPanel adminInfoPanel) {
-        
+    public LogoutButtonListener(JPanel parentPanel) {
+        this.parentPanel = parentPanel;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (adminPanel != null) {
-            adminPanel.showAuthentificationPanel();
-        } else if (clientPanel != null) {
-            clientPanel.showAuthentificationPanel();
-        } else if (adminInfoPanel != null) {
-            adminInfoPanel.showAuthentificationPanel();
+        if (parentPanel != null) {
+            parentPanel.removeAll();
+            parentPanel.add(new AuthentificationPanel());
+            parentPanel.revalidate();
+            parentPanel.repaint();
         }
     }
 }
