@@ -8,6 +8,7 @@ import com.rapizza.listeners.AddIngredientButtonListener;
 import com.rapizza.listeners.AddPizzaButtonListener;
 import com.rapizza.listeners.AddPizzeriaButtonListener;
 import com.rapizza.listeners.DashboardButtonListener;
+import com.rapizza.listeners.HelpButtonListener;
 import com.rapizza.listeners.InfoButtonListener;
 import com.rapizza.listeners.LogoutButtonListener;
 import com.rapizza.listeners.RecruitButtonListener;
@@ -37,6 +38,16 @@ public class AdminPanel extends JPanel {
         // Add a listener to the button
         InfoButtonListener infoButtonListener = new InfoButtonListener(this);
         infoButton.addActionListener(infoButtonListener);
+
+        // Help me button
+        JButton helpMeButton = new JButton("Help me");
+        helpMeButton.setToolTipText("Automatically set a pizzeria system");
+        configureLinkButton(helpMeButton);
+        toolBar.add(helpMeButton);
+
+        // Add a listener to the button
+        HelpButtonListener helpButtonListener = new HelpButtonListener(this);
+        helpMeButton.addActionListener(helpButtonListener);
 
         // Logout button
         JButton logoutButton = new JButton("Logout");
@@ -137,7 +148,7 @@ public class AdminPanel extends JPanel {
         
         // Get the list of ingredients names from the Ingredient class
         Vector<String> ingredients = new Vector<>();
-        for (Ingredient ingredient : Ingredient.listIngredients) {
+        for (Ingredient ingredient : Ingredient.listIngr) {
             ingredients.add(ingredient.nom);
         }
 

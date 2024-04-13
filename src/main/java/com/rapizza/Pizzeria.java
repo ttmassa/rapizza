@@ -30,6 +30,7 @@ public class Pizzeria {
         this.menu = new Vector<Pizza>();
         this.listCo = new Vector<Commande>();
         this.listLivreur = new Vector<Livreur>();
+        listPizzerias.add(this);
     }
 
     public void fabriquerCommande(Commande commande) {
@@ -118,6 +119,15 @@ public class Pizzeria {
 
     public boolean isClient(Client client) {
         return this.listClient.contains(client);
+    }
+
+    public Pizzeria getPizzeria(String adresse) {
+        for (Pizzeria pizzeria : listPizzerias) {
+            if (pizzeria.adresse.equals(adresse)) {
+                return pizzeria;
+            }
+        }
+        return null;
     }
 
 }

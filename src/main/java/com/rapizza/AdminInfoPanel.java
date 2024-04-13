@@ -40,6 +40,11 @@ public class AdminInfoPanel extends JPanel {
         configureLinkButton(infoButton);
         toolBar.add(infoButton);
 
+        // Help me button
+        JButton helpButton = new JButton("Help");
+        configureLinkButton(helpButton);
+        toolBar.add(helpButton);
+
         // Logout button
         JButton logoutButton = new JButton("Logout");
         configureLinkButton(logoutButton);

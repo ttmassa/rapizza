@@ -29,8 +29,7 @@ public class AddPizzeriaButtonListener implements ActionListener {
         String address = adresse.getText();
 
         // Create the pizzeria
-        Pizzeria pizzeria = new Pizzeria(address);
-        Pizzeria.listPizzerias.add(pizzeria);
+        new Pizzeria(address);
 
         // Clear the text field
         adresse.setText("");

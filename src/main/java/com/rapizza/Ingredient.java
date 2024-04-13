@@ -14,9 +14,9 @@ public class Ingredient {
     /**
      * Associations
      */
-    public Vector<LigneRecette> listIngr;
+    public Vector<LigneRecette> listLigneR;
     // For the GUI 
-    static public Vector<Ingredient> listIngredients = new Vector<Ingredient>();
+    static public Vector<Ingredient> listIngr = new Vector<Ingredient>();
 
     /**
      * Default constructor
@@ -24,16 +24,17 @@ public class Ingredient {
     public Ingredient(String nom, double prixKg) {
         this.nom = nom;
         this.prixKg = prixKg;
-        this.listIngr = new Vector<LigneRecette>();
+        this.listLigneR = new Vector<LigneRecette>();
+        listIngr.add(this);
     }
 
     public void ajouterLigneRecette(Pizza pizza, double qte) {
         LigneRecette ligne = new LigneRecette(pizza, this, qte);
-        this.listIngr.add(ligne);
+        this.listLigneR.add(ligne);
     }
 
     public void retirerLigneRecette(LigneRecette ligne) {
-        this.listIngr.remove(ligne);
+        this.listLigneR.remove(ligne);
     }
 
     public void modifierPrix(double prix) {
@@ -45,17 +46,17 @@ public class Ingredient {
     }
 
     public void afficherRecette() {
-        for (LigneRecette ligne : this.listIngr) {
+        for (LigneRecette ligne : this.listLigneR) {
             System.out.println(ligne.toString());
         }
     }
 
-    public Vector<Ingredient> getListIngredients() {
-        return listIngredients;
+    public Vector<Ingredient> getlistIngr() {
+        return listIngr;
     }
 
-    public void setListIngredients(Vector<Ingredient> listIngredients) {
-        Ingredient.listIngredients = listIngredients;
+    public void setlistIngr(Vector<Ingredient> listIngr) {
+        Ingredient.listIngr = listIngr;
     }
 
 }

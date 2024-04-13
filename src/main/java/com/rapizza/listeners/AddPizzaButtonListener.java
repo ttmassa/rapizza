@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import com.rapizza.AdminPanel;
 import com.rapizza.Ingredient;
 import com.rapizza.Pizza;
+import com.rapizza.Pizzeria;
 
 public class AddPizzaButtonListener implements ActionListener {
     private JTextField pizzaName;
@@ -44,14 +45,16 @@ public class AddPizzaButtonListener implements ActionListener {
         Vector<Ingredient> ingredients = new Vector<>();
         for (JCheckBox checkBox : listIngredients) {
             if (checkBox.isSelected()) {
-                Ingredient ingredient = Ingredient.listIngredients.get(listIngredients.indexOf(checkBox));
+                Ingredient ingredient = Ingredient.listIngr.get(listIngredients.indexOf(checkBox));
                 ingredients.add(ingredient);
             }
         }
 
         // Create the pizza
         Pizza pizza = new Pizza(name, priceDouble, ingredients);
-        Pizza.listPizzas.add(pizza);
+        for (Pizzeria pizzeria : Pizzeria.listPizzerias) {
+            pizzeria.ajouterPizza(pizza);
+        }
 
         // Clear the text fields
         pizzaName.setText("");

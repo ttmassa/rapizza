@@ -3,6 +3,7 @@ package com.rapizza.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.rapizza.AdminPanel;
@@ -34,8 +35,7 @@ public class AddIngredientButtonListener implements ActionListener {
         double priceDouble = Double.parseDouble(price);
 
         // Create the ingredient
-        Ingredient ingredient = new Ingredient(name, priceDouble);
-        Ingredient.listIngredients.add(ingredient);
+        new Ingredient(name, priceDouble);
 
         // Clear the text fields
         ingredientName.setText("");
@@ -45,6 +45,6 @@ public class AddIngredientButtonListener implements ActionListener {
         adminPanel.refreshPanel();
 
         // Display a success message
-        System.out.println("Ingredient added successfully");
+        JOptionPane.showMessageDialog(null, "Ingredient added successfully");
     }
 }

@@ -117,15 +117,6 @@ public class AuthentificationPanel extends JPanel {
         this.add(loginButtonPanel, gbc);
     }
 
-    public void showClientPanel() {
-        removeAll();
-        ClientPanel clientPanel = new ClientPanel();
-        this.setLayout(new BorderLayout());
-        add(clientPanel);
-        revalidate();
-        repaint();
-    }
-
     public void showAdminPanel() {
         removeAll();
         AdminPanel adminPanel = new AdminPanel();
@@ -155,7 +146,15 @@ public class AuthentificationPanel extends JPanel {
         return clientRadioButton.isSelected() || adminRadioButton.isSelected() || livreurRadioButton.isSelected();
     }
 
-    public Pizzeria getPizzeria() {
-        return (Pizzeria) pizzeriaComboBox.getSelectedItem();
+    public Pizzeria getPizzeriaSelected() {
+        String adresse = (String) pizzeriaComboBox.getSelectedItem();
+
+        for (Pizzeria pizzeria : Pizzeria.listPizzerias) {
+            if (pizzeria.adresse.equals(adresse)) {
+                return pizzeria;
+            }
+        }
+
+        return null;
     }
 }

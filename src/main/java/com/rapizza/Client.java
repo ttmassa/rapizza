@@ -30,7 +30,6 @@ public class Client {
         this.listCo = new Vector<Commande>();
         this.nbrCommande = 0;
         this.listPizza = new Vector<LigneC>();
-        this.pizzeria.ajouterClient(this);
     }
 
     /*
