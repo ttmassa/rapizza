@@ -104,7 +104,6 @@ public class ClientPanel extends JPanel {
             orderRecapList.add(Box.createRigidArea(new Dimension(0, 5)));
         }
         
-        // Add the order recap list to the order recap panel
         orderRecapPanel.add(orderRecapList, BorderLayout.CENTER);
 
         // Create a delete button

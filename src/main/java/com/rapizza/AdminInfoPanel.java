@@ -57,7 +57,7 @@ public class AdminInfoPanel extends JPanel {
 
         // Create the main panel
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout()); // Set layout for main panel
+        mainPanel.setLayout(new BorderLayout()); 
 
         // Create the combo box
         JComboBox<String> pizzeriaComboBox = new JComboBox<String>();
