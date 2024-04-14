@@ -19,4 +19,30 @@ public enum TaillePizza {
                 return 1;
         }
     }
+
+    public String toString() {
+        switch (this) {
+            case NAINE:
+                return "Naine";
+            case HUMAINE:
+                return "Humaine";
+            case OGRESSE:
+                return "Ogresse";
+            default:
+                return "Humaine";
+        }
+    }
+
+    public static TaillePizza fromString(String taille) {
+        switch (taille) {
+            case "Naine":
+                return NAINE;
+            case "Humaine":
+                return HUMAINE;
+            case "Ogresse":
+                return OGRESSE;
+            default:
+                return HUMAINE;
+        }
+    }
 }

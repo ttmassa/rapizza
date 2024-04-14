@@ -92,4 +92,13 @@ public class Pizza {
         this.listLigneR.add(new LigneRecette(this, ingr, 1));
     }
 
+    public Pizza getPizza(String nom) {
+        for (Pizza pizza : listPizzas) {
+            if (pizza.nom.equals(nom)) {
+                return pizza;
+            }
+        }
+        return null;
+    }
+
 }
