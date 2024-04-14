@@ -2,6 +2,7 @@ package com.rapizza;
 
 import javax.swing.*;
 
+import com.rapizza.listeners.DeleteButtonListener;
 import com.rapizza.listeners.LogoutButtonListener;
 import com.rapizza.listeners.SelectButtonListener;
 
@@ -101,10 +102,20 @@ public class ClientPanel extends JPanel {
             // Add space between the lines
             orderRecapList.add(Box.createRigidArea(new Dimension(0, 5)));
         }
-
         
         // Add the order recap list to the order recap panel
         orderRecapPanel.add(orderRecapList, BorderLayout.CENTER);
+
+        // Create a delete button
+        JButton deleteButton = new JButton("Delete");
+        configureDeleteButton(deleteButton);
+
+        // Add action listener to the delete button
+        DeleteButtonListener deleteButtonListener = new DeleteButtonListener(this, client);
+        deleteButton.addActionListener(deleteButtonListener);
+
+        orderRecapPanel.add(deleteButton, BorderLayout.SOUTH);
+
 
         // Add the order recap panel to the main panel
         this.add(orderRecapPanel, BorderLayout.EAST);
@@ -236,6 +247,16 @@ public class ClientPanel extends JPanel {
         button.setFont(button.getFont().deriveFont(Font.BOLD));
         button.setOpaque(true);
         button.setBorder(BorderFactory.createEmptyBorder(7, 0, 7, 0));
+    }
+
+    private void configureDeleteButton(JButton button) {
+        button.setToolTipText("Delete the selected pizza");
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        button.setFocusable(false);
+        button.setBackground(Color.RED);
+        button.setForeground(Color.WHITE);
+        button.setBorder(BorderFactory.createEmptyBorder(7, 0, 7, 0));
+        button.setOpaque(true);
     }
 
     public Pizzeria getPizzeria() {
