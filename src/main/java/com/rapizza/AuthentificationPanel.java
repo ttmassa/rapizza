@@ -88,7 +88,6 @@ public class AuthentificationPanel extends JPanel {
         // Add radio buttons to the panel
         radioPanel.add(clientRadioButton);
         radioPanel.add(adminRadioButton);
-        radioPanel.add(livreurRadioButton);
 
         // Add radio button panel to the bottom of the main panel
         gbc.gridx = 0;
