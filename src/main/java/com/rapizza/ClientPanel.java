@@ -61,6 +61,40 @@ public class ClientPanel extends JPanel {
 
         this.add(mainPanel, BorderLayout.CENTER);
 
+        // Create the order recap on the side
+        JPanel orderRecapPanel = new JPanel();
+        orderRecapPanel.setLayout(new BorderLayout());
+        orderRecapPanel.setPreferredSize(new Dimension(150, 0));
+        orderRecapPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+        // Add padding to the order recap panel
+        orderRecapPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Create the order recap title
+        JLabel orderRecapTitle = new JLabel("Order Recap");
+        orderRecapTitle.setHorizontalAlignment(JLabel.CENTER);
+        orderRecapTitle.setForeground(Color.BLACK);
+        orderRecapPanel.setBackground(Color.WHITE);
+        orderRecapTitle.setFont(orderRecapTitle.getFont().deriveFont(Font.BOLD, 16));
+        orderRecapPanel.add(orderRecapTitle, BorderLayout.NORTH);
+
+        // Add a border below the title
+        orderRecapTitle.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.GRAY));
+        
+        // Create the order recap list
+        JPanel orderRecapList = new JPanel();
+        orderRecapList.setLayout(new BoxLayout(orderRecapList, BoxLayout.Y_AXIS));
+        orderRecapList.setBackground(Color.WHITE);
+
+        // Add padding to the order recap list
+        orderRecapList.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
+        
+        // Add the order recap list to the order recap panel
+        orderRecapPanel.add(orderRecapList, BorderLayout.CENTER);
+
+        // Add the order recap panel to the main panel
+        this.add(orderRecapPanel, BorderLayout.EAST);
+
         // Create the command button
         JButton orderButton = new JButton("Order");
         // Increase the font size
