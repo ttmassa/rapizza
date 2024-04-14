@@ -56,7 +56,7 @@ public class Client {
             // Get the pizza from the menu with the name given
             Pizza pizza = this.pizzeria.menu.stream().filter(p -> p.nom.equals(nomPizza)).findFirst().orElse(null);
 
-            LigneC ligne = new LigneC(pizza, qte, TaillePizza.valueOf(taille));
+            LigneC ligne = new LigneC(pizza, qte, TaillePizza.fromString(taille));
             this.listPizza.add(ligne);
         }
     }

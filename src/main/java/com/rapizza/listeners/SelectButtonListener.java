@@ -8,16 +8,19 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import com.rapizza.LigneC;
-import com.rapizza.Pizza;
-import com.rapizza.TaillePizza;
+import com.rapizza.Client;
+import com.rapizza.ClientPanel;
 
 public class SelectButtonListener implements ActionListener {
+    private ClientPanel parentPanel;
+    private Client client;
     private JTextField quantityField;
     private JComboBox<String>  sizeComboBox; 
     private JLabel pizzaTitleLabel;
 
-    public SelectButtonListener(JTextField quantityField, JComboBox<String> sizeComboBox, JLabel pizzaTitleLabel) {
+    public SelectButtonListener(ClientPanel parentPanel, Client client, JTextField quantityField, JComboBox<String> sizeComboBox, JLabel pizzaTitleLabel) {
+        this.parentPanel = parentPanel;
+        this.client = client;
         this.quantityField = quantityField;
         this.sizeComboBox = sizeComboBox;
         this.pizzaTitleLabel = pizzaTitleLabel;
@@ -31,31 +34,20 @@ public class SelectButtonListener implements ActionListener {
             return;
         }
 
-        // Get the selected pizza
-        String pizzaTitle = pizzaTitleLabel.getText();
-    
-        Pizza selectedPizza = null;
-        for (Pizza pizza : Pizza.listPizzas) {
-            if (pizza.nom.equals(pizzaTitle)) {
-                selectedPizza = pizza;
-            }
-        
-        }
-
-        if (selectedPizza == null) {
-            JOptionPane.showMessageDialog(null, "Pizza does not exist in database", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        // Get the selected pizza's name by parsing the title
+        String pizzaTitle = pizzaTitleLabel.getText().substring(0, this.pizzaTitleLabel.getText().indexOf(" -"));
 
         // Get the quantity
         int quantity = Integer.parseInt(quantityField.getText());
 
         // Get the pizza's size
         String sizeText = (String) sizeComboBox.getSelectedItem();
-        TaillePizza size = TaillePizza.valueOf(sizeText);
 
         // Create a new line
-        new LigneC(selectedPizza, quantity, size);
+        client.ajouterLigne(pizzaTitle, quantity, sizeText);
+
+        // Refresh the panel
+        parentPanel.refresh();
     }
     
 }

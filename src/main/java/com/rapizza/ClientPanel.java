@@ -3,16 +3,19 @@ package com.rapizza;
 import javax.swing.*;
 
 import com.rapizza.listeners.LogoutButtonListener;
+import com.rapizza.listeners.SelectButtonListener;
 
 import java.awt.*;
 import java.util.Vector;
 
 public class ClientPanel extends JPanel {
+    private Client client;
     private Pizzeria pizzeria;
     private final int CARD_HEIGHT = 150;
     private final int CARD_WIDTH = 200;
 
-    public ClientPanel(Pizzeria pizzeria) {
+    public ClientPanel(Client client, Pizzeria pizzeria) {
+        this.client = client;
         this.pizzeria = pizzeria;
 
         // Set layout to BorderLayout
@@ -88,6 +91,17 @@ public class ClientPanel extends JPanel {
 
         // Add padding to the order recap list
         orderRecapList.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
+
+        // Add the command lines to the list
+        for (LigneC ligneC : client.listPizza) {
+            JLabel ligneLabel = new JLabel(ligneC.pizza.nom + "(" + ligneC.taille + ") x" + ligneC.qte);
+            ligneLabel.setFont(ligneLabel.getFont().deriveFont(Font.ITALIC));
+            orderRecapList.add(ligneLabel);
+
+            // Add space between the lines
+            orderRecapList.add(Box.createRigidArea(new Dimension(0, 5)));
+        }
+
         
         // Add the order recap list to the order recap panel
         orderRecapPanel.add(orderRecapList, BorderLayout.CENTER);
@@ -183,6 +197,10 @@ public class ClientPanel extends JPanel {
         // Create a select button
         JButton selectButton = new JButton("Select");
         configureSelectButton(selectButton);
+
+        // Add action listener to the select button
+        SelectButtonListener selectButtonListener = new SelectButtonListener(this, client, quantityTextField, sizeComboBox, titleLabel);
+        selectButton.addActionListener(selectButtonListener);
     
         // Add border above select button
         card.add(selectButton, BorderLayout.SOUTH);
@@ -222,5 +240,14 @@ public class ClientPanel extends JPanel {
 
     public Pizzeria getPizzeria() {
         return pizzeria;
+    }
+
+    public void refresh() {
+        this.removeAll();
+        ClientPanel clientPanel = new ClientPanel(client, pizzeria);
+        this.setLayout(new BorderLayout());
+        this.add(clientPanel);
+        this.revalidate();
+        this.repaint();
     }
 }

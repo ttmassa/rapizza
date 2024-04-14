@@ -25,8 +25,8 @@ public class LoginButtonListener implements ActionListener {
             // Check which radio button is selected
             if (authPanel.isClientSelected()  && authPanel.getPizzeriaSelected() != null ) {
                 // Show the ClientPanel
-                showClientPanel();
                 Client client = new Client(authPanel.getPhoneNumberListener().getPhoneNumber(), authPanel.getPizzeriaSelected());
+                showClientPanel(client);
                 authPanel.getPizzeriaSelected().ajouterClient(client);
             } else if (authPanel.isAdminSelected()) {
                 // Show the AdminPanel
@@ -39,9 +39,9 @@ public class LoginButtonListener implements ActionListener {
         }
     }
 
-    public void showClientPanel() {
+    public void showClientPanel(Client client) {
         authPanel.removeAll();
-        ClientPanel clientPanel = new ClientPanel(authPanel.getPizzeriaSelected());
+        ClientPanel clientPanel = new ClientPanel(client, authPanel.getPizzeriaSelected());
         authPanel.setLayout(new BorderLayout());
         authPanel.add(clientPanel);
         authPanel.revalidate();
