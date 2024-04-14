@@ -78,7 +78,6 @@ public class AuthentificationPanel extends JPanel {
         // Create radio buttons
         clientRadioButton = new JRadioButton("Client");
         adminRadioButton = new JRadioButton("Admin");
-        livreurRadioButton = new JRadioButton("Livreur");
 
         // Group the radio buttons
         ButtonGroup buttonGroup = new ButtonGroup();
