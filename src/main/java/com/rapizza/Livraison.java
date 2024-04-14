@@ -76,7 +76,7 @@ public class Livraison {
         if (this.isLate()) {
             System.out.println("Retard de livraison (" + this.tempsLivraison + ") : Commande gratuite !");
             return 0;
-        } else if (this.commande.client.nbrCommande % 10 == 0 && this.commande.client.nbrCommande != 0) {
+        } else if (this.commande.client.getNbrCommandes() % 10 == 0 && this.commande.client.getNbrCommandes() != 0) {
             System.out.println("10 commandes chez nous : Commande gratuite !");
             return 0;
         } else {

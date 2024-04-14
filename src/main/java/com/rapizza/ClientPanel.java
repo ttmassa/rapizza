@@ -5,6 +5,7 @@ import javax.swing.*;
 import com.rapizza.listeners.DeleteButtonListener;
 import com.rapizza.listeners.LogoutButtonListener;
 import com.rapizza.listeners.OrderButtonListener;
+import com.rapizza.listeners.ProfileButtonListener;
 import com.rapizza.listeners.SelectButtonListener;
 
 import java.awt.*;
@@ -32,9 +33,14 @@ public class ClientPanel extends JPanel {
         commandButton.setToolTipText("Make a new order");
         configureLinkButton(commandButton);
 
-        JButton settingsButton = new JButton("Settings");
-        settingsButton.setToolTipText("Change your settings");
-        configureLinkButton(settingsButton);
+        // Create profile button
+        JButton profileButton = new JButton("Profile");
+        profileButton.setToolTipText("View your profile");
+        configureLinkButton(profileButton);
+
+        // Add a listener to the profile button
+        ProfileButtonListener profileButtonListener = new ProfileButtonListener(this, client);
+        profileButton.addActionListener(profileButtonListener);
 
         // Create logout button
         JButton logoutButton = new JButton("Logout");
@@ -47,7 +53,7 @@ public class ClientPanel extends JPanel {
         // Add the buttons to the toolbar
         toolbar.add(commandButton);
         toolbar.addSeparator();
-        toolbar.add(settingsButton);
+        toolbar.add(profileButton);
         toolbar.addSeparator();
         toolbar.add(logoutButton);
 

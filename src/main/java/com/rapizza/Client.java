@@ -9,9 +9,9 @@ public class Client {
     /**
      * Attributes
      */
-    public String numTelephone;
+    private String numTelephone;
     public double solde;
-    public int nbrCommande;
+    private int nbrCommandes;
     /**
      * Associations
      */
@@ -28,7 +28,7 @@ public class Client {
         this.solde = 0;
         this.pizzeria = pizzeria;
         this.listCo = new Vector<Commande>();
-        this.nbrCommande = 0;
+        this.nbrCommandes = 0;
         this.listPizza = new Vector<LigneC>();
     }
 
@@ -75,7 +75,7 @@ public class Client {
 
     public void ajouterCommande(Commande commande) {
         this.listCo.add(commande);
-        this.nbrCommande = this.listCo.size();
+        this.nbrCommandes = this.listCo.size();
     }
 
     public void annulerCommande(Commande commande) {
@@ -85,7 +85,19 @@ public class Client {
     public void profilInfo() {
         System.out.println("Numéro de téléphone : " + this.numTelephone);
         System.out.println("Solde : " + this.solde);
-        System.out.println("Nombre de commandes : " + this.nbrCommande);
+        System.out.println("Nombre de commandes : " + this.nbrCommandes);
+    }
+
+    public String getNumTelephone() {
+        return this.numTelephone;
+    }
+
+    public double getSolde() {
+        return this.solde;
+    }
+
+    public int getNbrCommandes() {
+        return this.nbrCommandes;
     }
 
 }
