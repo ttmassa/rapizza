@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import com.rapizza.listeners.DeleteButtonListener;
 import com.rapizza.listeners.LogoutButtonListener;
+import com.rapizza.listeners.OrderButtonListener;
 import com.rapizza.listeners.SelectButtonListener;
 
 import java.awt.*;
@@ -116,15 +117,17 @@ public class ClientPanel extends JPanel {
 
         orderRecapPanel.add(deleteButton, BorderLayout.SOUTH);
 
-
         // Add the order recap panel to the main panel
         this.add(orderRecapPanel, BorderLayout.EAST);
 
         // Create the command button
         JButton orderButton = new JButton("Order");
-        // Increase the font size
-        orderButton.setFont(orderButton.getFont().deriveFont(16.0f));
         configureOrderButton(orderButton);
+
+        // Add action listener to the order button
+        OrderButtonListener orderButtonListener = new OrderButtonListener(this, client);
+        orderButton.addActionListener(orderButtonListener);
+
         this.add(orderButton, BorderLayout.SOUTH);
     }
 
@@ -213,7 +216,6 @@ public class ClientPanel extends JPanel {
         SelectButtonListener selectButtonListener = new SelectButtonListener(this, client, quantityTextField, sizeComboBox, titleLabel);
         selectButton.addActionListener(selectButtonListener);
     
-        // Add border above select button
         card.add(selectButton, BorderLayout.SOUTH);
     
         return card;
@@ -229,6 +231,7 @@ public class ClientPanel extends JPanel {
     }
 
     private void configureOrderButton(JButton button) {
+        button.setFont(button.getFont().deriveFont(Font.BOLD, 16.0f));
         button.setToolTipText("Order the selected pizzas");
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
         button.setFocusable(false);
