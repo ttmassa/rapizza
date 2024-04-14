@@ -58,7 +58,7 @@ public class Pizzeria {
             random = (int) (Math.random() * this.listLivreur.size());
         }
 
-        this.listLivreur.get(random).affecterLivraison(commande);;
+        this.listLivreur.get(random).affecterLivraison(commande);
     }
 
     public boolean isPizzaAlvailable(Pizza pizza) {
