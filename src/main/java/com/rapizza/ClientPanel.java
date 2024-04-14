@@ -77,22 +77,22 @@ public class ClientPanel extends JPanel {
         card.setBackground(Color.WHITE);
         // Add padding to the card
         card.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
+    
         // Create the title
         JLabel titleLabel = new JLabel(title + " - " + price + "€");
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
         titleLabel.setForeground(Color.BLACK);
         titleLabel.setFont(titleLabel.getFont().deriveFont(Font.BOLD, 16)); 
         card.add(titleLabel, BorderLayout.NORTH);
-
+    
         // Add a border below the title
         titleLabel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.GRAY));
-
+    
         // Create the main panel
         JPanel maiPanel = new JPanel();
         maiPanel.setLayout(new BorderLayout());
         maiPanel.setBackground(Color.WHITE);
-
+    
         // Create the ingredients panel
         JPanel ingredientsPanel = new JPanel();
         ingredientsPanel.setBackground(Color.WHITE);
@@ -104,28 +104,58 @@ public class ClientPanel extends JPanel {
         }
         // No border added to the ingredients panel
         maiPanel.add(ingredientsPanel, BorderLayout.NORTH);
-
-        // Create a combobox for the pizza size
+    
+        // Create a layout for the quantity and size
+        JPanel quantitySizePanel = new JPanel(new GridBagLayout());
+        quantitySizePanel.setBackground(Color.WHITE);
+    
+        // Create constraints for quantity text field
+        GridBagConstraints quantityConstraints = new GridBagConstraints();
+        quantityConstraints.weightx = 0.25; // 1/4 of the width
+        quantityConstraints.fill = GridBagConstraints.HORIZONTAL;
+        quantityConstraints.gridx = 0;
+        quantityConstraints.gridy = 0;
+        quantityConstraints.insets = new Insets(0, 0, 0, 5); 
+    
+        // Create text field for quantity
+        JTextField quantityTextField = new JTextField();
+        quantityTextField.setText("1");
+        quantityTextField.setHorizontalAlignment(JTextField.CENTER);
+        quantityTextField.setBackground(Color.WHITE);
+        quantitySizePanel.add(quantityTextField, quantityConstraints);
+    
+        // Create constraints for size combo box
+        GridBagConstraints sizeConstraints = new GridBagConstraints();
+        sizeConstraints.weightx = 0.75; // 3/4 of the width
+        sizeConstraints.fill = GridBagConstraints.HORIZONTAL;
+        sizeConstraints.gridx = 1;
+        sizeConstraints.gridy = 0;
+    
+        // Create combo box for pizza size
         JComboBox<String> sizeComboBox = new JComboBox<>(new String[] { "Naine", "Humaine", "Ogresse" });
         sizeComboBox.setSelectedIndex(1); 
         sizeComboBox.setFocusable(false);
         sizeComboBox.setBackground(Color.WHITE);
-        maiPanel.add(sizeComboBox, BorderLayout.SOUTH);
-
+        quantitySizePanel.add(sizeComboBox, sizeConstraints);
+    
+        // Add the quantity and size panel to the main panel
+        maiPanel.add(quantitySizePanel, BorderLayout.CENTER);
+    
         card.add(maiPanel, BorderLayout.CENTER);
-
+    
         // Add space between ingredients and select button
         maiPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
-
+    
         // Create a select button
         JButton selectButton = new JButton("Select");
         configureSelectButton(selectButton);
-
+    
         // Add border above select button
         card.add(selectButton, BorderLayout.SOUTH);
-
+    
         return card;
     }
+    
 
     private void configureLinkButton(JButton button) {
         button.setForeground(Color.BLUE);
