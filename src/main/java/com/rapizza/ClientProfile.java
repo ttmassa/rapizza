@@ -1,0 +1,60 @@
+package com.rapizza;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Cursor;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
+
+import com.rapizza.listeners.LogoutButtonListener;
+
+public class ClientProfile extends JPanel {
+
+    public ClientProfile() {
+
+        // Set layout to BorderLayout
+        this.setLayout(new BorderLayout());
+
+        // Toolbar (Commands and Settings)
+        JToolBar toolbar = new JToolBar();
+        toolbar.setFloatable(false);
+
+        // Create the buttons
+        JButton commandButton = new JButton("Commands");
+        commandButton.setToolTipText("Make a new order");
+        configureLinkButton(commandButton);
+
+        JButton settingsButton = new JButton("Settings");
+        settingsButton.setToolTipText("Change your settings");
+        configureLinkButton(settingsButton);
+
+        // Create logout button
+        JButton logoutButton = new JButton("Logout");
+        configureLinkButton(logoutButton);
+
+        // Add action listener to the logout button
+        LogoutButtonListener logoutButtonListener = new LogoutButtonListener(this);
+        logoutButton.addActionListener(logoutButtonListener);
+
+        // Add the buttons to the toolbar
+        toolbar.add(commandButton);
+        toolbar.addSeparator();
+        toolbar.add(settingsButton);
+        toolbar.addSeparator();
+        toolbar.add(logoutButton);
+
+        this.add(toolbar, BorderLayout.NORTH);
+        
+    }
+
+    private void configureLinkButton(JButton button) {
+        button.setForeground(Color.BLUE);
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        button.setFocusable(false);
+        button.setBorderPainted(false);
+        button.setContentAreaFilled(false);
+    }
+
+}
