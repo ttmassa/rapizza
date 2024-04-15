@@ -112,6 +112,17 @@ public class ClientPanel extends JPanel {
         
         orderRecapPanel.add(orderRecapList, BorderLayout.CENTER);
 
+        // Create a panel for the total price and the delete button
+        JPanel totalPricePanel = new JPanel();
+        totalPricePanel.setLayout(new BorderLayout());
+        totalPricePanel.setBackground(Color.WHITE);
+
+        // Create the total price label
+        JLabel totalPriceLabel = new JLabel("Total: " + client.getCurrentCommandePrix() + "€");
+        totalPriceLabel.setHorizontalAlignment(JLabel.CENTER);
+        totalPriceLabel.setFont(totalPriceLabel.getFont().deriveFont(Font.BOLD));
+        totalPricePanel.add(totalPriceLabel, BorderLayout.NORTH);
+
         // Create a delete button
         JButton deleteButton = new JButton("Delete");
         configureDeleteButton(deleteButton);
@@ -120,7 +131,9 @@ public class ClientPanel extends JPanel {
         DeleteButtonListener deleteButtonListener = new DeleteButtonListener(this, client);
         deleteButton.addActionListener(deleteButtonListener);
 
-        orderRecapPanel.add(deleteButton, BorderLayout.SOUTH);
+        totalPricePanel.add(deleteButton, BorderLayout.CENTER);
+
+        orderRecapPanel.add(totalPricePanel, BorderLayout.SOUTH);
 
         // Add the order recap panel to the main panel
         this.add(orderRecapPanel, BorderLayout.EAST);
