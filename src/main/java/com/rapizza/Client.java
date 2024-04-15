@@ -44,6 +44,12 @@ public class Client {
             return;
         } else {
             Commande commande = new Commande(this, this.pizzeria, listPizza);
+
+            if (commande.getPrix() > this.solde) {
+                System.out.println("Solde insuffisant");
+                return;
+            }
+
             ajouterCommande(commande);
             effacerLignes();    
         }
