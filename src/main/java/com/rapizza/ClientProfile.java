@@ -1,16 +1,7 @@
 package com.rapizza;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Font;
-import java.awt.GridLayout;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JToolBar;
+import javax.swing.*;
+import java.awt.*;
 
 import com.rapizza.listeners.CommandsButtonListener;
 import com.rapizza.listeners.LogoutButtonListener;
@@ -61,53 +52,58 @@ public class ClientProfile extends JPanel {
 
         // Main panel
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayout(4, 1));
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-        // Display the phone number
+        // Panel for phone number
+        JPanel phoneNumberPanel = new JPanel(new BorderLayout());
         JLabel phoneNumberLabel = new JLabel("Phone number: " + client.getNumTelephone());
-        phoneNumberLabel.setFont(new java.awt.Font("Arial", Font.PLAIN, 20));
-        mainPanel.add(phoneNumberLabel);
+        phoneNumberLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        phoneNumberPanel.add(phoneNumberLabel, BorderLayout.WEST);
+        mainPanel.add(phoneNumberPanel);
 
-        // Display the sold amount
-
-        // Create a new panel to align the sold amount and the button to recharge the account
-        JPanel soldAmountPanel = new JPanel();
-        soldAmountPanel.setLayout(new BorderLayout());
-
-        // Create a label to display the sold amount
+        // Panel for sold amount and recharge button
+        JPanel soldAmountPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel soldAmountLabel = new JLabel("Sold amount: " + client.getSolde() + " €");
-        soldAmountLabel.setFont(new java.awt.Font("Arial", Font.PLAIN, 20));
+        soldAmountLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         soldAmountPanel.add(soldAmountLabel, BorderLayout.WEST);
 
-        // Create a text field to enter the amount to recharge
+        // Add space between the label and the recharge button
+        soldAmountPanel.add(Box.createHorizontalStrut(10), BorderLayout.CENTER);
+
+        JPanel rechargePanel = new JPanel(new BorderLayout());
+        rechargePanel.add(Box.createHorizontalStrut(10), BorderLayout.WEST); // Add space before the text field
+
+        // Create the text field for the recharge amount
         JTextField rechargeAmountField = new JTextField();
         rechargeAmountField.setToolTipText("Enter the amount to recharge");
-        rechargeAmountField.setFont(new java.awt.Font("Arial", Font.PLAIN, 20));
-        soldAmountPanel.add(rechargeAmountField, BorderLayout.CENTER);
+        rechargeAmountField.setFont(new Font("Arial", Font.PLAIN, 20));
+        rechargeAmountField.setPreferredSize(new Dimension(100, 30));
+        rechargePanel.add(rechargeAmountField, BorderLayout.CENTER);
 
-        // Create a button to recharge the account
+        // Create the recharge button
         JButton rechargeButton = new JButton("Recharge");
         rechargeButton.setToolTipText("Recharge your account");
-        configureLinkButton(rechargeButton);
-
+        configureRechargeButton(rechargeButton);
+        
         // Add action listener to the recharge button
         RechargeButtonListener rechargeButtonListener = new RechargeButtonListener(this, client, rechargeAmountField);
         rechargeButton.addActionListener(rechargeButtonListener);
 
-        // Add action listener to the recharge button
+        rechargePanel.add(rechargeButton, BorderLayout.EAST);
 
-        // Add the recharge button to the panel
-        soldAmountPanel.add(rechargeButton, BorderLayout.EAST);
-
+        soldAmountPanel.add(rechargePanel); // Add the recharge panel to the soldAmountPanel
         mainPanel.add(soldAmountPanel);
 
-        // Display the number of orders
+        // Panel for number of orders
+        JPanel ordersPanel = new JPanel(new BorderLayout());
         JLabel ordersLabel = new JLabel("Number of orders: " + client.getNbrCommandes());
-        ordersLabel.setFont(new java.awt.Font("Arial", Font.PLAIN, 20));
-        mainPanel.add(ordersLabel);        
+        ordersLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        ordersPanel.add(ordersLabel, BorderLayout.WEST);
+        mainPanel.add(ordersPanel);
 
         // Add the main panel to the center of the frame
         this.add(mainPanel, BorderLayout.CENTER);
+
     }
 
     private void configureLinkButton(JButton button) {
@@ -117,11 +113,16 @@ public class ClientProfile extends JPanel {
         button.setBorderPainted(false);
         button.setContentAreaFilled(false);
     }
-    
+
+    private void configureRechargeButton(JButton button) {
+        button.setBackground(Color.BLUE);
+        button.setOpaque(true);
+        button.setForeground(Color.WHITE);
+    }
+
     public Client getClient() {
         return client;
     }
-
 
     public void refresh() {
         this.removeAll();
@@ -130,5 +131,4 @@ public class ClientProfile extends JPanel {
         this.revalidate();
         this.repaint();
     }
-
 }
