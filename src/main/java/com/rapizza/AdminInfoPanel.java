@@ -117,7 +117,7 @@ public class AdminInfoPanel extends JPanel {
                         menuComboBox.addItem("Select a pizza");
 
                         for (Pizza pizza : selectedPizzeria.menu) {
-                            menuComboBox.addItem(pizza.nom + " - " + pizza.prixMarge + "€");
+                            menuComboBox.addItem(pizza.nom + " - " + pizza.getPrix() + "€");
                         }
                     }
 

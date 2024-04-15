@@ -11,7 +11,7 @@ public class Pizza {
      */
     public String nom;
     public Vector<Ingredient> ingredients;
-    public double prixMarge;
+    private double prixMarge;
     
     /**
      * Associations
@@ -45,12 +45,12 @@ public class Pizza {
 
     public Pizza(String nom, double prixMarge, Vector <Ingredient> ingredients) {
         this.nom = nom;
-        this.prixMarge = prixMarge;
         this.ingredients = ingredients;
         this.listLigneR = new Vector<LigneRecette>();
         for (Ingredient ingr : ingredients) {
             this.listLigneR.add(new LigneRecette(this, ingr, 1));
         }
+        this.prixMarge = prixMarge;
         this.listLigne = new Vector<LigneC>();
     }
 

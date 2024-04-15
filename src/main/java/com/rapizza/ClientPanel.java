@@ -65,7 +65,7 @@ public class ClientPanel extends JPanel {
 
         // Create the menu
         for (Pizza pizza : pizzeria.menu) {
-            JPanel card = createPizzaCard(pizza.nom, pizza.prixMarge, pizza.ingredients);
+            JPanel card = createPizzaCard(pizza.nom, pizza.getPrix(), pizza.ingredients);
             card.setPreferredSize(new Dimension(CARD_WIDTH, CARD_HEIGHT));
             mainPanel.add(card);
         }
