@@ -2,6 +2,8 @@ package com.rapizza;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import javax.swing.JOptionPane;
 /**
  * 
  */
@@ -54,8 +56,12 @@ public class Livraison {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("Commande livrée");
-                System.out.println("Nouveau solde client : " + commande.client.solde + " euros");
+                JOptionPane.showMessageDialog(
+                    null, 
+                    "Order delivered !\n" + "Price : " + getPrixFinale() + "€\n" + "Delivery time : " + tempsLivraison + " minutes",
+                    "YAYYY !",
+                    JOptionPane.INFORMATION_MESSAGE
+                );
                 livreur.isAvailable = true;
                 timer.cancel();
             }
@@ -80,6 +86,7 @@ public class Livraison {
             System.out.println("10 commandes chez nous : Commande gratuite !");
             return 0;
         } else {
+            System.out.println("" + this.commande.getPrix());
             return this.commande.getPrix();
         }
     }
