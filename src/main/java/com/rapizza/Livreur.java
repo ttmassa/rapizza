@@ -24,6 +24,7 @@ public class Livreur {
         idLivreur++;
         this.listLivraison = new Vector<Livraison>();
         this.pizzeria = pizzeria;
+        this.pizzeria.recruterLivreur(this);
     }
 
     public void affecterLivraison(Commande commande) {

@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import com.rapizza.AdminPanel;
 import com.rapizza.Ingredient;
+import com.rapizza.Livreur;
 import com.rapizza.Pizza;
 import com.rapizza.Pizzeria;
 
@@ -60,6 +61,11 @@ public class HelpButtonListener implements ActionListener {
         pizzeria3.ajouterPizza(pizza3);
         pizzeria3.ajouterPizza(pizza4);
         pizzeria3.ajouterPizza(pizza5);
+
+        // Recruit delivery drivers
+        new Livreur(pizzeria1);
+        new Livreur(pizzeria1);
+        new Livreur(pizzeria2);
 
         // Refresh the panel
         parentPanel.refreshPanel();
