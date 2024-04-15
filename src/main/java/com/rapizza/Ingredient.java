@@ -23,7 +23,7 @@ public class Ingredient {
      */
     public Ingredient(String nom, double prixKg) {
         this.nom = nom;
-        this.prixKg = prixKg;
+        this.prixKg = Math.round(prixKg * 100.0) / 100.0;
         this.listLigneR = new Vector<LigneRecette>();
         listIngr.add(this);
     }

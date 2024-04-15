@@ -113,7 +113,7 @@ public class Client {
             prix += ligne.getPrix();
         }
 
-        return Math.round(prix * 100.0) / 100.0;
+        return Math.round(prix * 1000.0) / 1000.0;
     }
 
 }
