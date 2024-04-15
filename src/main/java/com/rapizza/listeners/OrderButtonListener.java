@@ -20,10 +20,17 @@ public class OrderButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // Order the pizzas
-        if (this.client.pizzeria.listLivreur.isEmpty()) {
+        if (this.client.getCurrentCommandePrix() > this.client.solde) {
             JOptionPane.showMessageDialog(
                 parentPanel, 
-                "Oh no! We do not have any delivery drivers yet - please recruit some first in the admin section!", 
+                "You do not have enough money to place this order! Please add more money to your account in the profile section.", 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE
+            );
+        } else if (this.client.pizzeria.listLivreur.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                parentPanel, 
+                "We do not have any delivery drivers yet - please recruit some first in the admin section!", 
                 "Error", 
                 JOptionPane.ERROR_MESSAGE
             );

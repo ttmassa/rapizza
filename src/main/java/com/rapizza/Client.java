@@ -106,4 +106,14 @@ public class Client {
         return this.nbrCommandes;
     }
 
+    public double getCurrentCommandePrix() {
+        double prix = 0;
+
+        for (LigneC ligne : this.listPizza) {
+            prix += ligne.getPrix();
+        }
+
+        return Math.round(prix * 100.0) / 100.0;
+    }
+
 }

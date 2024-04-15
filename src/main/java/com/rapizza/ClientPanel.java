@@ -204,7 +204,7 @@ public class ClientPanel extends JPanel {
         sizeComboBox.setFocusable(false);
         sizeComboBox.setBackground(Color.WHITE);
         quantitySizePanel.add(sizeComboBox, sizeConstraints);
-    
+
         // Add the quantity and size panel to the main panel
         maiPanel.add(quantitySizePanel, BorderLayout.CENTER);
     
