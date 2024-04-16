@@ -56,12 +56,28 @@ public class Livraison {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                JOptionPane.showMessageDialog(
-                    null, 
-                    "Order delivered !\n" + "Price : " + getPrixFinale() + "€\n" + "Delivery time : " + tempsLivraison + " minutes",
-                    "YAYYY !",
-                    JOptionPane.INFORMATION_MESSAGE
-                );
+                if (isLate()) {
+                    JOptionPane.showMessageDialog(
+                        null, 
+                        "Order delivered !\n" + "Price : " + getPrixFinale() + "€\n" + "Delivery time : " + tempsLivraison + " minutes\n" + "Sorry we were late, free order !",
+                        "YAYYY !",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else if (commande.client.getNbrCommandes() % 10 == 0 && commande.client.getNbrCommandes() != 0) {
+                    JOptionPane.showMessageDialog(
+                        null, 
+                        "Order delivered !\n" + "Price : " + getPrixFinale() + "€\n" + "Delivery time : " + tempsLivraison + " minutes\n" + "Free order - thanks for your fidelity !",
+                        "YAYYY !",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else {
+                    JOptionPane.showMessageDialog(
+                        null, 
+                        "Order delivered !\n" + "Price : " + getPrixFinale() + "€\n" + "Delivery time : " + tempsLivraison + " minutes",
+                        "YAYYY !",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
                 livreur.isAvailable = true;
                 timer.cancel();
             }
