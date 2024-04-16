@@ -73,7 +73,7 @@ public class Livraison {
                         null, 
                         "Order delivered !\n" + 
                         "Price : " + getPrixFinale() + "€\n" + 
-                        "Delivery time : " + tempsLivraison + " minutes" + 
+                        "Delivery time : " + tempsLivraison + " minutes\n" + 
                         "Vehicle : " + vehicule.toString(),
                         "YAYYY !",
                         JOptionPane.INFORMATION_MESSAGE
@@ -84,7 +84,7 @@ public class Livraison {
             }
         };
 
-        timer.schedule(task, this.tempsLivraison * 100);
+        timer.schedule(task, this.tempsLivraison * 10);
     }
 
     public void payer() {
