@@ -33,7 +33,7 @@ public class RecruitButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Get the selected pizzeria
         String address = (String) listPizzerias.getSelectedItem();
-        Pizzeria pizzeria = Pizzeria.listPizzerias.stream().filter(p -> p.adresse.equals(address)).findFirst().get();
+        Pizzeria pizzeria = Pizzeria.listPizzerias.stream().filter(p -> p.getAdresse().equals(address)).findFirst().get();
 
         // Create a new employee
         Livreur livreur = new Livreur(pizzeria);

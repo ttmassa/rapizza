@@ -57,7 +57,7 @@ public class AuthentificationPanel extends JPanel {
             pizzeriaComboBox.addItem("No pizzerias available");
         } else {
             for (int i = 0; i < Pizzeria.listPizzerias.size(); i++) {
-                String adresse = Pizzeria.listPizzerias.get(i).adresse;
+                String adresse = Pizzeria.listPizzerias.get(i).getAdresse();
                 pizzeriaComboBox.addItem(adresse);
             }    
         }
@@ -148,7 +148,7 @@ public class AuthentificationPanel extends JPanel {
         String adresse = (String) pizzeriaComboBox.getSelectedItem();
 
         for (Pizzeria pizzeria : Pizzeria.listPizzerias) {
-            if (pizzeria.adresse.equals(adresse)) {
+            if (pizzeria.getAdresse().equals(adresse)) {
                 return pizzeria;
             }
         }

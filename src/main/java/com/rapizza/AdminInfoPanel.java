@@ -69,7 +69,7 @@ public class AdminInfoPanel extends JPanel {
             pizzeriaComboBox.addItem("Select a pizzeria");
 
             for (Pizzeria pizzeria : Pizzeria.listPizzerias) {
-                pizzeriaComboBox.addItem(pizzeria.adresse);
+                pizzeriaComboBox.addItem(pizzeria.getAdresse());
             }
         }
 

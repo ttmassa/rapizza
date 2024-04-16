@@ -9,7 +9,7 @@ public class Pizzeria {
     /**
      * Attributes
      */
-    public String adresse;
+    private String adresse;
     /**
      * Associations
      */
@@ -128,6 +128,10 @@ public class Pizzeria {
             }
         }
         return null;
+    }
+
+    public String getAdresse() {
+        return this.adresse;
     }
 
 }

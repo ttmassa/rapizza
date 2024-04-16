@@ -217,7 +217,7 @@ public class AdminPanel extends JPanel {
             pizzeriaComboBox.addItem("No pizzerias available");
         } else {
             for (Pizzeria pizzeria : Pizzeria.listPizzerias) {
-                pizzeriaComboBox.addItem(pizzeria.adresse);
+                pizzeriaComboBox.addItem(pizzeria.getAdresse());
             }
         }
 
