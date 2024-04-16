@@ -52,7 +52,7 @@ public class Livraison {
                         "Order delivered !\n" + 
                         "Price : " + getPrixFinale() + "€\n" +
                         "Delivery time : " + tempsLivraison + " minutes\n" +
-                        "Vehicle : " + vehicule + "\n" +
+                        "Vehicle : " + vehicule.toString() + "\n" +
                         "Sorry we were late, free order !",
                         "YAYYY !",
                         JOptionPane.INFORMATION_MESSAGE
@@ -63,7 +63,7 @@ public class Livraison {
                         "Order delivered !\n" + 
                         "Price : " + getPrixFinale() + "€\n" + 
                         "Delivery time : " + tempsLivraison + " minutes\n" + 
-                        "Vehicle : " + vehicule + "\n" +
+                        "Vehicle : " + vehicule.toString() + "\n" +
                         "Free order - thanks for your fidelity !",
                         "YAYYY !",
                         JOptionPane.INFORMATION_MESSAGE
@@ -74,7 +74,7 @@ public class Livraison {
                         "Order delivered !\n" + 
                         "Price : " + getPrixFinale() + "€\n" + 
                         "Delivery time : " + tempsLivraison + " minutes" + 
-                        "Vehicle : " + vehicule,
+                        "Vehicle : " + vehicule.toString(),
                         "YAYYY !",
                         JOptionPane.INFORMATION_MESSAGE
                     );
