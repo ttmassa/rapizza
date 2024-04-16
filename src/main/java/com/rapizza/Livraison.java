@@ -36,13 +36,10 @@ public class Livraison {
 
     public void livrer() {
         if (!this.commande.isValide()) {
-            System.out.println("Solde insuffisant");
             return;
         }
-        this.payer();
 
-        // Set the delivery in progress
-        System.out.println("Commande en cours de livraison");
+        this.payer();
 
         // Create a timer to simulate the delivery
         Timer timer  = new Timer();
@@ -52,21 +49,32 @@ public class Livraison {
                 if (isLate()) {
                     JOptionPane.showMessageDialog(
                         null, 
-                        "Order delivered !\n" + "Price : " + getPrixFinale() + "€\n" + "Delivery time : " + tempsLivraison + " minutes\n" + "Sorry we were late, free order !",
+                        "Order delivered !\n" + 
+                        "Price : " + getPrixFinale() + "€\n" +
+                        "Delivery time : " + tempsLivraison + " minutes\n" +
+                        "Vehicle : " + vehicule + "\n" +
+                        "Sorry we were late, free order !",
                         "YAYYY !",
                         JOptionPane.INFORMATION_MESSAGE
                     );
                 } else if (commande.client.getNbrCommandes() % 10 == 0 && commande.client.getNbrCommandes() != 0) {
                     JOptionPane.showMessageDialog(
                         null, 
-                        "Order delivered !\n" + "Price : " + getPrixFinale() + "€\n" + "Delivery time : " + tempsLivraison + " minutes\n" + "Free order - thanks for your fidelity !",
+                        "Order delivered !\n" + 
+                        "Price : " + getPrixFinale() + "€\n" + 
+                        "Delivery time : " + tempsLivraison + " minutes\n" + 
+                        "Vehicle : " + vehicule + "\n" +
+                        "Free order - thanks for your fidelity !",
                         "YAYYY !",
                         JOptionPane.INFORMATION_MESSAGE
                     );
                 } else {
                     JOptionPane.showMessageDialog(
                         null, 
-                        "Order delivered !\n" + "Price : " + getPrixFinale() + "€\n" + "Delivery time : " + tempsLivraison + " minutes",
+                        "Order delivered !\n" + 
+                        "Price : " + getPrixFinale() + "€\n" + 
+                        "Delivery time : " + tempsLivraison + " minutes" + 
+                        "Vehicle : " + vehicule,
                         "YAYYY !",
                         JOptionPane.INFORMATION_MESSAGE
                     );
@@ -76,7 +84,7 @@ public class Livraison {
             }
         };
 
-        timer.schedule(task, this.tempsLivraison * 10);
+        timer.schedule(task, this.tempsLivraison * 100);
     }
 
     public void payer() {
