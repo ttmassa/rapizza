@@ -22,13 +22,6 @@ public class Livraison {
     /**
      * Default constructor
      */
-    public Livraison(Commande commande, Livreur livreur, TypeVehicule vehicule, int tempsLivraison) {
-        this.commande = commande;
-        this.livreur = livreur;
-        this.vehicule = vehicule;
-        this.tempsLivraison = tempsLivraison;
-    }
-
     public Livraison(Commande commande, Livreur livreur) {
         this.commande = commande;
         this.livreur = livreur;

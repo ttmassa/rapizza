@@ -33,16 +33,6 @@ public class Pizza {
      * Une autre solution ça serait de créer la pizza avec un nom, son prix de marge et les lignes de recette. Mais ça oblige à créer les
      * lignes de recette avant de créer la pizza. Ce qui n'est pas très pratique non plus.
      */
-    public Pizza(String nom, Vector <Ingredient> ingredients, double prixMarge, Client client, Pizzeria pizzeria) {
-        this.nom = nom;
-        this.prixMarge = prixMarge;
-        this.client = client;
-        this.pizzeria = pizzeria;
-        this.ingredients = new Vector<Ingredient>();
-        this.listLigneR = new Vector<LigneRecette>();
-        this.listLigne = new Vector<LigneC>();
-    }
-
     public Pizza(String nom, double prixMarge, Vector <Ingredient> ingredients) {
         this.nom = nom;
         this.ingredients = ingredients;
