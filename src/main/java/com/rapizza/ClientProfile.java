@@ -10,6 +10,9 @@ import com.rapizza.listeners.RechargeButtonListener;
 public class ClientProfile extends JPanel {
     private Client client;
 
+    private static final int LINE_WIDTH = Integer.MAX_VALUE;
+    private static final int LINE_HEIGHT = 50;
+
     public ClientProfile(Client client) {
         this.client = client;
 
@@ -55,17 +58,23 @@ public class ClientProfile extends JPanel {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         // Panel for phone number
-        JPanel phoneNumberPanel = new JPanel(new BorderLayout());
+        JPanel phoneNumberPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        phoneNumberPanel.setMaximumSize(new Dimension(LINE_WIDTH, LINE_HEIGHT + 20));
         JLabel phoneNumberLabel = new JLabel("Phone number: " + client.getNumTelephone());
         phoneNumberLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-        phoneNumberPanel.add(phoneNumberLabel, BorderLayout.WEST);
+        phoneNumberPanel.add(phoneNumberLabel);
+
+        // Add top margin to the panel
+        phoneNumberPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
+
         mainPanel.add(phoneNumberPanel);
 
         // Panel for sold amount and recharge button
         JPanel soldAmountPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        soldAmountPanel.setMaximumSize(new Dimension(LINE_WIDTH, LINE_HEIGHT));
         JLabel soldAmountLabel = new JLabel("Sold amount: " + client.getSolde() + " €");
         soldAmountLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-        soldAmountPanel.add(soldAmountLabel, BorderLayout.WEST);
+        soldAmountPanel.add(soldAmountLabel);
 
         // Add space between the label and the recharge button
         soldAmountPanel.add(Box.createHorizontalStrut(10), BorderLayout.CENTER);
@@ -95,10 +104,11 @@ public class ClientProfile extends JPanel {
         mainPanel.add(soldAmountPanel);
 
         // Panel for number of orders
-        JPanel ordersPanel = new JPanel(new BorderLayout());
+        JPanel ordersPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        ordersPanel.setMaximumSize(new Dimension(LINE_WIDTH, LINE_HEIGHT));
         JLabel ordersLabel = new JLabel("Number of orders: " + client.getNbrCommandes());
         ordersLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-        ordersPanel.add(ordersLabel, BorderLayout.WEST);
+        ordersPanel.add(ordersLabel);
         mainPanel.add(ordersPanel);
 
         // Add the main panel to the center of the frame
