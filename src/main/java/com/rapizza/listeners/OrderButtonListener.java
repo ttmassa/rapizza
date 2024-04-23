@@ -3,6 +3,7 @@ package com.rapizza.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
 import com.rapizza.Client;
@@ -11,10 +12,12 @@ import com.rapizza.ClientPanel;
 public class OrderButtonListener implements ActionListener {
     private ClientPanel parentPanel;
     private Client client;
+    private JCheckBox deliveryCheckBox;
 
-    public OrderButtonListener(ClientPanel parentPanel, Client client) {
+    public OrderButtonListener(ClientPanel parentPanel, Client client, JCheckBox deliveryCheckBox) {
         this.parentPanel = parentPanel;
         this.client = client;
+        this.deliveryCheckBox = deliveryCheckBox;
     }
 
     @Override
@@ -35,7 +38,11 @@ public class OrderButtonListener implements ActionListener {
                 JOptionPane.ERROR_MESSAGE
             );
         } else {
-            this.client.passerCommande();
+            if (this.deliveryCheckBox.isSelected()) {
+                this.client.passerCommande(true);
+            } else {
+                this.client.passerCommande();
+            }
         }
 
         // Refresh the panel

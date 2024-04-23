@@ -36,6 +36,15 @@ public class Livreur {
         livraison.livrer();
     }
 
+    public void affecterLivraison(Commande commande, boolean irlDelivery) {
+        Livraison livraison = new Livraison(commande, this);
+        this.listLivraison.add(livraison);
+        this.isAvailable = false;
+
+        // Start the delivery
+        livraison.livrer(irlDelivery);
+    }
+
 
 
 }

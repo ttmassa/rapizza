@@ -47,6 +47,20 @@ public class Pizzeria {
         }
     }
 
+    public void fabriquerCommande(Commande commande, boolean irlDelivery) {
+        // Check if the client is registered and if the order is allowed
+        if (!isClient(commande.client)) {
+            System.out.println("Client non enregistré");
+            return;
+        } else if (!isCommandeFaisable(commande)) {
+            System.out.println("Commande impossible");
+            return;
+        } else {
+            choisirLivreur(commande, irlDelivery);
+            ajouterCommande(commande);
+        }
+    }
+
     public void choisirLivreur(Commande commande) {
         if (this.listLivreur.isEmpty()) {
             System.out.println("Pas de livreur disponible");
@@ -59,6 +73,20 @@ public class Pizzeria {
         }
 
         this.listLivreur.get(random).affecterLivraison(commande);
+    }
+
+    public void choisirLivreur(Commande commande, boolean irlDelivery) {
+        if (this.listLivreur.isEmpty()) {
+            System.out.println("Pas de livreur disponible");
+            return;
+        }
+        int random = (int) (Math.random() * this.listLivreur.size());
+
+        while (!this.listLivreur.get(random).isAvailable) {
+            random = (int) (Math.random() * this.listLivreur.size());
+        }
+
+        this.listLivreur.get(random).affecterLivraison(commande, irlDelivery);
     }
 
     public boolean isPizzaAlvailable(Pizza pizza) {

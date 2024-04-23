@@ -55,6 +55,23 @@ public class Client {
         }
     }
 
+    public void passerCommande(boolean irlDelivery) {
+        if (this.listPizza.isEmpty()) {
+            System.out.println("Commande vide");
+            return;
+        } else {
+            Commande commande = new Commande(this, this.pizzeria, listPizza, irlDelivery);
+
+            if (commande.getPrix() > this.solde) {
+                System.out.println("Solde insuffisant");
+                return;
+            }
+
+            ajouterCommande(commande);
+            effacerLignes();    
+        }
+    }
+
     public void ajouterLigne(String nomPizza, int qte, String taille) {
         if (this.pizzeria.menu.stream().noneMatch(p -> p.nom.equals(nomPizza))) {
             System.out.println("Pizza non disponible");

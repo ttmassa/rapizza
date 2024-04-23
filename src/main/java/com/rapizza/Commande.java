@@ -35,6 +35,21 @@ public class Commande {
         this.client.pizzeria.fabriquerCommande(this);
     }
 
+    // Constructor for irl delivery
+    public Commande(Client client, Pizzeria pizzeria, Vector<LigneC> listPizza, boolean irlDelivery) {
+        idCommande++;
+        this.client = client;
+        this.pizzeria = pizzeria;
+        this.listLigne = new Vector<LigneC>();
+        this.livraison = null;
+
+        for (LigneC ligne : listPizza) {
+            this.listLigne.add(new LigneC(this, ligne.pizza, ligne.qte, ligne.taille));
+        }
+
+        this.client.pizzeria.fabriquerCommande(this, irlDelivery);
+    }
+
     public double getPrix() {
         double prix = 0;
 

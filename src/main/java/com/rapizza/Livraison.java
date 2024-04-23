@@ -87,6 +87,59 @@ public class Livraison {
         timer.schedule(task, this.tempsLivraison * 10);
     }
 
+    public void livrer(boolean irlDelivery) {
+        if (!this.commande.isValide()) {
+            return;
+        }
+
+        this.payer();
+
+        // Create a timer to simulate the delivery
+        Timer timer  = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                if (isLate()) {
+                    JOptionPane.showMessageDialog(
+                        null, 
+                        "Order delivered !\n" + 
+                        "Price : " + getPrixFinale() + "€\n" +
+                        "Delivery time : " + tempsLivraison + " minutes\n" +
+                        "Vehicle : " + vehicule.toString() + "\n" +
+                        "Sorry we were late, free order !",
+                        "YAYYY (irlDelivery) !",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else if (commande.client.getNbrCommandes() % 10 == 0 && commande.client.getNbrCommandes() != 0) {
+                    JOptionPane.showMessageDialog(
+                        null, 
+                        "Order delivered !\n" + 
+                        "Price : " + getPrixFinale() + "€\n" + 
+                        "Delivery time : " + tempsLivraison + " minutes\n" + 
+                        "Vehicle : " + vehicule.toString() + "\n" +
+                        "Free order - thanks for your fidelity !",
+                        "YAYYY (irlDelivery) !",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else {
+                    JOptionPane.showMessageDialog(
+                        null, 
+                        "Order delivered !\n" + 
+                        "Price : " + getPrixFinale() + "€\n" + 
+                        "Delivery time : " + tempsLivraison + " minutes\n" + 
+                        "Vehicle : " + vehicule.toString(),
+                        "YAYYY (irlDelivery) !",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
+                livreur.isAvailable = true;
+                timer.cancel();
+            }
+        };
+
+        timer.schedule(task, this.tempsLivraison * 1000);
+    }
+
     public void payer() {
         this.commande.client.solde -= this.getPrixFinale();
     }

@@ -42,6 +42,11 @@ public class ClientPanel extends JPanel {
         ProfileButtonListener profileButtonListener = new ProfileButtonListener(this, client);
         profileButton.addActionListener(profileButtonListener);
 
+        // Add check button for real-time delivery
+        JCheckBox deliveryCheckBox = new JCheckBox("Delivery");
+        deliveryCheckBox.setToolTipText("Check to enable real-time delivery");
+        configureCheckBox(deliveryCheckBox);
+
         // Create logout button
         JButton logoutButton = new JButton("Logout");
         configureLinkButton(logoutButton);
@@ -54,6 +59,8 @@ public class ClientPanel extends JPanel {
         toolbar.add(commandButton);
         toolbar.addSeparator();
         toolbar.add(profileButton);
+        toolbar.addSeparator();
+        toolbar.add(deliveryCheckBox);
         toolbar.addSeparator();
         toolbar.add(logoutButton);
 
@@ -143,7 +150,7 @@ public class ClientPanel extends JPanel {
         configureOrderButton(orderButton);
 
         // Add action listener to the order button
-        OrderButtonListener orderButtonListener = new OrderButtonListener(this, client);
+        OrderButtonListener orderButtonListener = new OrderButtonListener(this, client, deliveryCheckBox);
         orderButton.addActionListener(orderButtonListener);
 
         this.add(orderButton, BorderLayout.SOUTH);
@@ -246,6 +253,13 @@ public class ClientPanel extends JPanel {
         button.setFocusable(false);
         button.setBorderPainted(false);
         button.setContentAreaFilled(false);
+    }
+
+    private void configureCheckBox(JCheckBox checkBox) {
+        checkBox.setForeground(Color.BLUE);
+        checkBox.setFocusable(false);
+        checkBox.setContentAreaFilled(false);
+        checkBox.setBorderPainted(false);
     }
 
     private void configureOrderButton(JButton button) {
