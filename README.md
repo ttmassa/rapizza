@@ -1,8 +1,18 @@
-# Bienvenue dans le projet Rapizza !
-Bienvenue dans le référentiel GitHub du projet Rapizza ! Ce projet, développé en collaboration entre [ttmassa](https://github.com/ttmassa) et [trCVZ](https://github.com/trCVZ), est un gestionnaire d'entreprise de livraisons de pizzas nommé Rapizza, entièrement conçu en Java.
+# Rapizza
 
-## Aperçu du Projet
-Rapizza vise à simplifier la gestion des commandes, des livraisons et de l'inventaire pour une entreprise de livraison de pizzas. Avec une interface utilisateur conviviale et des fonctionnalités robustes, ce projet offre une solution complète pour les entreprises du secteur de la restauration rapide.
+Welcome to Rapizza!
+
+Rapizza is a Java Swing application designed as a comprehensive management solution for a pizza delivery company. From inventory management to recruitment, pizza and ingredient selection, and customer ordering, Rapizza aims to streamline operations for efficiency and customer satisfaction.
+
+This application automates various aspects of the pizza business, including stock management, staffing, and pricing calculations. It also provides a user-friendly interface for customers to place orders and receive detailed order receipts.
+
+Although Rapizza operates in a fictional monetary system, it handles transactions seamlessly, automating client account top-ups and calculating prices based on production costs, profit margins, and pizza sizes.
+
+We invite you to explore Rapizza and discover how it can enhance the management and customer experience of your pizza delivery business.
+
+## University project
+
+Rapizza was developed as a project for object-oriented programming at my university. It serves as a practical application of the concepts learned during the course, highlighting Java programming skills, GUI development using Swing and software design principles.
 
 ### Consigne
 
