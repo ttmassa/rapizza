@@ -1,2 +1,5 @@
 # Ignore all the .class files
 *.class
+
+# Ignore all .lst files
+*.lst
