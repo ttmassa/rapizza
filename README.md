@@ -14,7 +14,7 @@ We invite you to explore Rapizza and discover how it can enhance the management 
 
 1. [Overview](#description)
 2. [Features](#features)
-3. [Getting Started](#usage)
+3. [Getting started](#usage)
 4. [License](#license)
 5. [Documentation](#documentation)
 
