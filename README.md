@@ -10,6 +10,14 @@ Although Rapizza operates in a fictional monetary system, it handles transaction
 
 We invite you to explore Rapizza and discover how it can enhance the management and customer experience of your pizza delivery business.
 
+## Table of Contents
+
+1. [Overview](#description)
+2. [Features](#features)
+3. [Getting Started](#usage)
+4. [License](#license)
+5. [Documentation](#documentation)
+
 ## University project
 
 Rapizza was developed as a project for object-oriented programming at my university. It serves as a practical application of the concepts learned during the course, highlighting Java programming skills, GUI development using Swing and software design principles.
