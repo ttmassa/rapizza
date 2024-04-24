@@ -3,3 +3,6 @@
 
 # Ignore all .lst files
 *.lst
+
+# Ignore all .jar files
+*.jar
