@@ -14,21 +14,66 @@ We invite you to explore Rapizza and discover how it can enhance the management 
 
 Rapizza was developed as a project for object-oriented programming at my university. It serves as a practical application of the concepts learned during the course, highlighting Java programming skills, GUI development using Swing and software design principles.
 
-### Consigne
+## Features
 
-On veut modéliser la gestion d'une entreprise de fabrication et de livraison de pizzas à domicile: la société RaPizz. Le client choisit sa pizza à partir d'un catalogue. Une pizza est caractérisée par son nom, les ingrédients qui la composent et son prix de base. Pour chaque pizza, il existe 3 tailles : "NAINE","HUMAINE" et "OGRESSE. La NAINE est 1/3 moins chère que le prix de base, la pizza "HUMAINE" coûte le prix de base et l' "OGRESSE" est 1/3 plus chère que le prix de base. Les pizzas sont livrées par des livreurs qui circulent en voiture ou à moto. Pour passer une commande de pizza, le client fournit son numéro de téléphone (qui va permettre de l’identifier) et le contenu de sa commande qu’on représente sous la forme d’une liste composée du nom d’une pizza, de sa taille et la quantité commandée. 
+- **Inventory Management:** Easily track and manage pizza ingredients and stock levels.
+- **Recruitment System:** Streamline hiring processes for staff members.
+- **Pizza Customization:** elect from a variety of pizzas and ingredients to create custom recipes.
+- **Automated Pricing:** Automatically calculate prices based on production costs, margins, and pizza size.
+- **Customer Ordering:** Provide a user-friendly interface for customers to place pizza orders.
+- **Monetary System:** Manage client accounts and handle transactions within a fictional monetary system.
 
-Le système commence par vérifier que le client existe dans la base des clients et conserve l’objet client qui lui correspond. Le système vérifie ensuite que la commande est faisable (elle peut être fabriquée dans un Point RaPizza qui fait toutes les pizzas spéciales demandées) puis crée la commande dans le système et en indique le numéro et le prix au client. Le mode de paiement est du type prépayé c'est-à-dire que le client est abonné au service de livraison de pizza et doit approvisionner son compte. On vérifie le solde du client avant de préparer et de livrer les pizzas. Une pizza gratuite sera livrée au bout de 10 pizzas achetées. Toute pizza livrée en plus de 30 minutes est gratuite (retard de livraison). A partir de cette description du cahier des charges "Livraison de commande de pizzas", on vous demande dans un premier temps d'élaborer le logiciel qui permet de l’automatiser.
+## Getting started
 
-## Objectif
-L'objectif principal de Rapizza est de fournir une plateforme logicielle efficace et intuitive pour les entreprises de livraison de pizzas, permettant une gestion fluide des opérations quotidiennes. En combinant des fonctionnalités de commande, de suivi des livraisons et de gestion d'inventaire, Rapizza aspire à améliorer l'efficacité et la satisfaction de la clientèle pour les entreprises du secteur.
+The easiest way to get started is to create a jar file with Maven commands. Make sure you have a usable version of maven installed locally on your computer.
 
-## Fonctionnalités Principales
-- Gestion des commandes : Permet aux utilisateurs de passer des commandes de pizzas en ligne, avec différentes options de personnalisation.
-- Suivi des livraisons : Offre un suivi en temps réel des livraisons en cours, avec des mises à jour sur l'état actuel des commandes.
-- Gestion de l'inventaire : Permet aux entreprises de surveiller et de gérer leur inventaire de manière efficace, en automatisant les tâches de réapprovisionnement et de suivi des stocks.
-  
-## Technologies Utilisées
-Le projet Rapizza est entièrement implémenté en Java, utilisant des concepts de programmation orientée objet pour assurer une structure modulaire et extensible. Il fait également usage de bibliothèques tierces pour des fonctionnalités spécifiques.
+1. **Compile all files:**
 
-Nous sommes ravis de partager notre travail avec vous et nous espérons que Rapizza apportera une valeur ajoutée à votre expérience de développement et d'apprentissage.
+- Navigate to the root directory. Execute this command to compile all the .java file into the target folder.
+
+    ```bash
+    mvn compile
+
+2. **Create jar file:**
+
+- Make sure all the files are compiled and execute this command to create a jar file.
+
+   ```bash
+   mvn package
+
+This should create 2 .jar files in the target folder.
+
+3. **Execute the jar file:**
+
+- Navigate to the target directory and run this command to execute the newly created jar file and launch the app.
+
+    ```bash
+    java -jar .\rapizza-1.0-SNAPSHOT-jar-with-dependencies.jar
+Make sure to execute the jar file with dependencies. 
+
+If you're encountouring any issues, you might want to check out the maven documentation or check the setup of java and maven on your computer.
+
+## License
+
+This project is licensed under the Apache-2.0 license - see the [LICENSE.md](LICENSE.md) file for details.
+
+Concretly you can: 
+- Use the project wherever and however you want as long as you credit me.
+
+## Documentation
+
+Explore the following resources for detailed documentation about related technologies:
+
+1. **Repository:**
+- Find the latest updates, releases, and source code on the GitHub repository: [https://github.com/ttmassa/file-encryption](https://github.com/ttmassa/rapizza).
+
+2. **Java Programming Language Documentation:**
+- Brush up on your Java programming skills with the official Java documentation: [Java Programming Documentation](https://docs.oracle.com/en/java/).
+
+3. **Swing Documentation:**
+- Find a summary of all swing library here: [Swing Documentation](https://docs.oracle.com/javase%2F7%2Fdocs%2Fapi%2F%2F/javax/swing/package-summary.html).
+
+5. **Maven:**
+- Make sure to check out the maven documentation to learn more about its use in this project: [Maven Documentation](https://maven.apache.org/guides/index.html).
+
+Have fun reading all that! (nobody does it anyway)
