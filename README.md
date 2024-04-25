@@ -73,7 +73,7 @@ Concretly you can:
 Explore the following resources for detailed documentation about related technologies:
 
 1. **Repository:**
-- Find the latest updates, releases, and source code on the GitHub repository: [https://github.com/ttmassa/file-encryption](https://github.com/ttmassa/rapizza).
+- Find the latest updates, releases, and source code on the GitHub repository: [https://github.com/ttmassa/rapizza](https://github.com/ttmassa/rapizza).
 
 2. **Java Programming Language Documentation:**
 - Brush up on your Java programming skills with the official Java documentation: [Java Programming Documentation](https://docs.oracle.com/en/java/).
