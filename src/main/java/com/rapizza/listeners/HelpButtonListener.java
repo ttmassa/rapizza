@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
+
 import com.rapizza.AdminPanel;
 import com.rapizza.Ingredient;
 import com.rapizza.Livreur;
@@ -27,6 +29,7 @@ public class HelpButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         if (isUsed) {
+            JOptionPane.showMessageDialog(parentPanel, "You already used the help button", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -66,6 +69,9 @@ public class HelpButtonListener implements ActionListener {
         new Livreur(pizzeria1);
         new Livreur(pizzeria1);
         new Livreur(pizzeria2);
+
+        // Set the flag to true
+        isUsed = true;
 
         // Refresh the panel
         parentPanel.refreshPanel();
