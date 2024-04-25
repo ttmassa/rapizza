@@ -77,17 +77,19 @@ public class ClientProfile extends JPanel {
         soldAmountPanel.add(soldAmountLabel);
 
         // Add space between the label and the recharge button
-        soldAmountPanel.add(Box.createHorizontalStrut(10), BorderLayout.CENTER);
+        soldAmountPanel.add(Box.createHorizontalStrut(10));
 
-        JPanel rechargePanel = new JPanel(new BorderLayout());
-        rechargePanel.add(Box.createHorizontalStrut(10), BorderLayout.WEST); // Add space before the text field
+        JPanel rechargePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         // Create the text field for the recharge amount
         JTextField rechargeAmountField = new JTextField();
         rechargeAmountField.setToolTipText("Enter the amount to recharge");
         rechargeAmountField.setFont(new Font("Arial", Font.PLAIN, 20));
         rechargeAmountField.setPreferredSize(new Dimension(100, 30));
-        rechargePanel.add(rechargeAmountField, BorderLayout.CENTER);
+        rechargePanel.add(rechargeAmountField);
+
+        // Add space between the text field and the recharge button
+        rechargePanel.add(Box.createHorizontalStrut(10));
 
         // Create the recharge button
         JButton rechargeButton = new JButton("Recharge");
@@ -98,7 +100,7 @@ public class ClientProfile extends JPanel {
         RechargeButtonListener rechargeButtonListener = new RechargeButtonListener(this, client, rechargeAmountField);
         rechargeButton.addActionListener(rechargeButtonListener);
 
-        rechargePanel.add(rechargeButton, BorderLayout.EAST);
+        rechargePanel.add(rechargeButton);
 
         soldAmountPanel.add(rechargePanel); // Add the recharge panel to the soldAmountPanel
         mainPanel.add(soldAmountPanel);
