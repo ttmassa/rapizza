@@ -25,6 +25,14 @@ public class LoginButtonListener implements ActionListener {
             // Check which radio button is selected
             if (authPanel.isClientSelected()  && authPanel.getPizzeriaSelected() != null ) {
                 // Show the ClientPanel
+                // Check if a client with the same phone number already exists
+                for (Client client : authPanel.getPizzeriaSelected().listClient) {
+                    if (client.getNumTelephone().equals(authPanel.getPhoneNumberListener().getPhoneNumber())) {
+                        showClientPanel(client);
+                        return;
+                    }
+                }
+
                 Client client = new Client(authPanel.getPhoneNumberListener().getPhoneNumber(), authPanel.getPizzeriaSelected());
                 showClientPanel(client);
                 authPanel.getPizzeriaSelected().ajouterClient(client);
